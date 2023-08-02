@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>this En JavaScript:</title>
+</head>
+<body>
+<script type="text/javascript">
+//this
+
+/*console.log(this);
+console.log(window);
+console.log(this === window);
+
+this.nombre = "Contexto Global";
+
+console.log(this.nombre);
+
+function inprimir(){
+	console.log(this.nombre);	
+}
+
+inprimir();
+
+const obj = {
+	nombre: "Contexto Objecto",
+	inprimir(){
+		console.log(this.nombre);
+	}
+}
+
+
+obj.inprimir();
+
+const obj2 = {
+	nombre: "Contexto Objecto 2",
+	inprimir
+}
+
+
+obj2.inprimir();
+
+//Conflicto con los contexto de las funciones Flechas:
+
+const obj3 = {
+	nombre: "Contexto Objecto 3",
+	inprimir: ()=>{
+		console.log(this.nombre);
+	}
+}
+
+obj3.inprimir();
+
+
+//Una funcion constructora crea su propio bloque:
+
+function Persona (nombre){
+	this.nombre = nombre;
+	return console.log(this.nombre);
+}
+
+let joa = new Persona("Joaquin");
+
+function Persona2 (nombre){
+	this.nombre = nombre;
+
+	// Genera un nuevo contexto cuando creamos una nueva funcion. Por lo que a no haber una propiedad llamada nombre dentro de la funcion busca por fuera que es la funcion creada que dice "Contexto Global";
+
+	return function(){
+		 console.log(this.nombre);
+		}
+}
+
+let joa2 = new Persona2("Joaquin");
+
+joa2();
+
+function Persona3 (nombre){
+	this.nombre = nombre;
+
+	// La solucion a este problema es combinar las caracteristicas de las funciones en este las funciones flecha no genera un nuevo contexto o bloque sino que sigue parte del bloque de la funcion contructora.
+
+	return () => {
+		 console.log(this.nombre);
+		}
+}
+
+let joa3 = new Persona3("Joaquin 3");
+
+joa3();*/
+
+//Call, Apply and Bind
+
+/*console.log(this);
+this.lugar = "Contexto Global";
+
+function saludar(saludo,aQuien){
+	console.log(`${saludo} ${aQuien} desde el${this.lugar}`);
+}
+
+saludar();
+
+const obj = {
+	lugar: "Contexto Objecto"
+};
+
+saludar.call(obj,"Hola","Joa");
+saludar.call(null,"Hola","Joa");
+saludar.call(this,"Hola","Joa");
+saludar.apply(obj,["Hola2","joa"]);
+saludar.apply(null,["Hola","Joa"]);
+saludar.apply(this,["Hola","Joa"]);
+
+this.nombre="Window";
+
+const persona = {
+	nombre : "joa",
+	saludar1: function(){
+		console.log(`Hola ${this.nombre}`);
+	}
+}
+
+persona.saludar1();
+
+const otraPersona = {
+	saludar: persona.saludar1.bind(persona)
+}
+
+otraPersona.saludar();
+
+const otraPersona1 = {
+	saludar: persona.saludar1.bind(this)
+}
+
+otraPersona1.saludar();*/
+</script>
+</body>
+</html>

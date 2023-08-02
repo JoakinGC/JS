@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nuevos Tipos de Datos:</title>
+</head>
+<body>
+<h1>Nuevos tipos de datos.</h1>
+<script type="text/javascript">
+
+//Symbol()
+
+/*let id=Symbol("id1"),
+ id2=Symbol("id2")
+
+console.log(id===id2);
+console.log(id,id2);
+console.log(typeof id);
+
+//Tiene que estar creado antes para poder guardar en un objecto
+
+const NOMBRE = Symbol();
+
+const persona = {
+	[NOMBRE]: "Ion"
+}
+
+console.log(persona)
+
+persona.NOMBRE = "Joaquin Contreras";
+
+console.log(persona);
+console.log(persona.NOMBRE);
+console.log(persona[NOMBRE]);
+
+
+//Creacion de un método: 
+
+const SALUDAR=Symbol()
+
+persona[SALUDAR] = function(){
+	console.log(`Hola`);
+}
+
+persona[SALUDAr]
+
+console.log(persona);
+persona[SALUDAR]();
+
+//No se pueden iterar las propiedades privadas con un for:
+
+for(let i in persona){
+	console.log(i);
+	console.log(persona[i]);
+}	
+
+//Para ver las propiedades privadas:
+
+console.log(Object.getOwnPropertySymbols(persona));*/
+
+
+//Set:
+
+/*const set = new Set([1,2,3,3,4,5,6,true,true,false,false,{},{},"hola","Hola"])
+
+console.log(set);
+console.log(set.size);
+
+const set2 = new Set();
+
+set2.add(1);
+set2.add(1);
+set2.add(2);
+set2.add(3);
+set2.add(true);
+set2.add(true);
+
+console.log(set2);
+console.log(set2.size);
+
+//Para recorrer los elementos
+
+console.log("Para recorrer set 1");
+for(let ele of set){
+	console.log(ele);
+}
+
+
+console.log("Para recorrer set 2");
+set2.forEach(item => console.log(item));
+
+let arr = Array.from(set);
+
+console.log(arr);
+console.log(arr[0]);
+console.log(arr[9]);
+
+set.delete("Hola");
+console.log(set);
+console.log(set.has(true));
+console.log(set.has(9));
+
+set2.clear()
+console.log(set2);*/
+
+//Map
+
+/*const  map = new Map();
+map.set("nombre","Joaquin");
+map.set("apellido","Contreras");
+map.set("edad",19);
+
+console.log(map);
+console.log(map.size);
+console.log(map.has("correo"));
+console.log(map.has("nombre"));
+console.log(map.get("nombre"));
+map.set("nombre","Contreras Joaquin");
+console.log(map.get("nombre"));
+
+map.delete("apellido");
+console.log(map);
+
+
+map.set(19,"diecinueve");
+map.set(true,true);
+map.set({},{});
+
+console.log(map);
+
+
+for(let [key,value] of map){
+	console.log(`Llave: ${key}\nValor: ${value}`);
+}
+
+
+const map2 = new Map([
+	["nombre","Kenai"],
+	["edad", 7],
+	["animal","perro"],
+	[null,null]
+]);
+
+console.log(map2);
+
+for(let [key,value] of map2){
+	console.log(`Llave: ${key}\nValor: ${value}`);
+}
+
+const keyMap2 = [...map2.keys()];
+const valuesMap2 = [...map2.values()];
+
+console.log(keyMap2);
+console.log(valuesMap2);*/
+
+//Weak Sets:
+
+//const weakSet = new WeakSet(["as",3]); esto genera error debemos sumar elementos con el método .add().
+
+/*const weakSet = new WeakSet();
+
+let valor1 = {"valor1":1};
+let valor2 = {"valor2":2};
+let valor3 = {"valor3":3};
+
+
+weakSet.add(valor1);
+weakSet.add(valor2);
+//weakSet.add(valor3);
+console.log(weakSet);
+
+console.log(weakSet.has(valor1));
+console.log(weakSet.has(valor3));
+
+weakSet.delete(valor2);
+console.log(weakSet);
+
+weakSet.add(valor2);
+weakSet.add(valor3);
+console.log(weakSet);
+
+setInterval(() => console.log(weakSet),1000);
+
+setTimeout(() =>{
+	valor1 = null;
+	valor2 = null;
+	valor3 = null;
+},3000);
+
+
+*/
+
+//Weak Map:
+
+/*const weakMap = new WeakMap([
+	["nombre","kEnAi"],
+	["edad",7],
+	["animal","perro"],
+	[null,"nulo"]
+]); esto no se debe hacer con weakmap ya que arroja error*/
+
+/*const weakMap = new WeakMap();
+
+let llave1 = {};
+let llave2 = {};
+let llave3 = {};
+
+weakMap.set(llave1,1);
+weakMap.set(llave2,2);
+console.log(weakMap);
+
+
+console.log(weakMap.has(llave2));
+console.log(weakMap.has(llave3));
+
+weakMap.delete(llave2);
+console.log(weakMap);
+
+weakMap.set(llave2,2);
+weakMap.set(llave3,3);
+console.log(weakMap);
+
+setInterval(() => console.log(weakMap),1000);
+
+setTimeout(() =>{
+	llave1 = null;
+	llave2 = null;
+	llave3 = null;
+	console.log("Funcione");
+},5000);*/
+
+
+
+
+// Elementos Iterables y Iterators:
+a
+/*const iterable = [1,2,3,4,5];
+
+//Acedemos al iterador del iterable:
+
+const iterador = iterable[Symbol.iterator]();
+
+console.log(iterable);
+console.log(iterador);
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+
+const iterable2 = [1,2,3,4,5];
+const iterador2 = iterable2[Symbol.iterator]();
+
+let next = iterador2.next();
+
+while(!next.done){
+	console.log(next.value);
+	next = iterador2.next();
+}
+
+console.log("Elementos iterables de SET");
+const iterableSet = new Set([1,2,3,3,4,5,6,6]);
+const iteradorSet = iterableSet[Symbol.iterator]();
+
+let nextSet = iteradorSet.next();
+
+while(!nextSet.done){
+	console.log(nextSet.value);
+	nextSet = iteradorSet.next();
+}
+
+console.log("ELementos iterables de una CADENA DE TEXTO");
+
+const iterableString = "Hola Mundo";
+const iteradorString = iterableString[Symbol.iterator]();
+
+let nextString = iteradorString.next();
+
+while(!nextString.done){
+	console.log(nextString.value);
+	nextString = iteradorString.next();
+}
+
+console.log("ELementos iterables de MAP");
+
+const iterableMap = new Map([["nombre","Joaquin"],["Edad","19"]]);
+const iteradorMap = iterableMap[Symbol.iterator]();
+
+let nextMap = iteradorMap.next();
+
+while(!nextMap.done){
+	console.log(nextMap.value);
+	nextMap = iteradorMap.next();
+}*/
+
+
+//Generators:
+
+/*function* iterable(){
+	yield "hola";
+	console.log("Hola consola");
+	yield "hola2";
+	console.log("Seguimos con más instrucciones de nuestro código");
+	yield "Hola3";
+	yield "Hola4";
+}
+
+let iterador = iterable();*/
+
+/*console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());*/
+
+/*for(let y of iterador){
+	console.log(y);
+}
+
+const arr=[...iterable()];
+console.log(arr);
+
+function cuadrado(valor){
+	setTimeout(()=>{
+		return console.log({valor,resultado:valor*valor});
+	},Math.random() *1000);
+}
+
+function* generador(){
+	console.log("Inicio Generator");
+	yield cuadrado(0);
+	yield cuadrado(1);
+	yield cuadrado(2);
+	yield cuadrado(3);
+	yield cuadrado(4);
+	yield cuadrado(5);
+	console.log("Termina Generator");
+}
+
+let gen = generador();
+
+for(let y of gen){
+	console.log(y);
+}
+*/
+
+//este es un ejemplo de una asincronia no bloqueante ya que deja el control del flujo del código para el primero que termine es por eso que el resultado o lo que se muestra en la consola no es en orden como en las promesas y la funciona asicrona con await.
+
+
+//Proxies
+
+/*const persona = {
+	nombre: "",
+	apellido:"",
+	edad:0
+};
+
+
+
+const manejador = {
+	set(obj, prop, valor){
+		if(Object.keys(obj).indexOf(prop)===-1){
+			return console.error(`La propiedad ${prop} no existe en el objecto persona`);
+		}
+		//validacion de nombre y apellido:
+
+		if(
+			(prop === "nombre" || prop === "apellido")&&
+			!(/^[a-zA-ZÑñÁáÉéÍiÓóÚúÜ\s]+$/g.test(valor))
+		){
+			return console.error(`La propiedad "${prop}" sólo acepta letras y espacios en blanco`);
+		}
+//Se pueden hacer todas las validaciones que queramos
+		obj[prop] = valor;
+	}
+}
+
+const joa = new Proxy(persona,manejador);
+joa.nombre = "Joaquin19";
+joa.apellido = "Contreras";
+joa.edad = 19;
+joa.twiter = "@elgasti";
+console.log(joa);
+console.log(persona);*/
+
+//Propiedades Dinamicas Objecto:
+
+// Se puede crear una propiedad dinamica antes 
+/*let aleatorio = Math.round(Math.random() * 100 + 5);
+const objUsuario = {
+	propiedadNomal : "Valor",
+	[`id_${aleatorio}`]:"Valor aleatorio"
+};
+const usuarios = ["Jon","Irma","Miguel","Kala","kEnaI"];
+
+// Se puede crear una propiedad dinamica desde afuera del objecto dejado.
+
+usuarios.forEach((usuario,index)=>objUsuario[`id_${index}`] = usuario);
+
+
+
+
+
+console.log(usuarios);*/
+
+
+</script>
+
+</body>
+</html>

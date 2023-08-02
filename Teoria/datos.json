@@ -1,0 +1,11 @@
+{
+		"cadena": "Jonh",
+		"numero": "35",
+		"booleano": "true",
+		"arreglo":["correr","programador","cocina"],
+		"objecto": {
+			"twitter": "@gasti",
+			"email":"joakingcontreras2@gmail.com"
+		},
+		"nulo":null
+}
