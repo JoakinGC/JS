@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 8</title>
+</head>
+<!--
+12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F. -->
+<body>
+
+<script type="text/javascript">
+	
+/*12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.*/
+
+//Mi solucion:
+
+
+
+const divisible = (n=0,veces=1000) =>{
+
+	if(n===0) return console.warn("No se coloco ningun número");
+
+	if(typeof n!=="number") return console.error("Tiene que ser si o si un número");
+
+	if(Math.sign(n)===-1) return console.warn("No puede ser un número negativo");
+
+	let n2=0,divisibles=[],n3;
+	for(i=1;i<=veces;i++){
+		n3=n / i;
+		n2 = parseInt(n3);
+		if(n3===n2) divisibles.push(i);
+	}
+	return (divisibles.length===2) ? console.info("Es primo",n):console.info("No es primo es divisible por:",divisibles);
+}
+//divisible()
+//divisible(0)
+//divisible("")
+//divisible(-1)
+
+//divisible([])
+//divisible({})
+//divisible(7)
+//divisible(8)
+
+//Fin
+
+//Solucion Jon Mircha
+
+const numeroPrimos = (numero=undefined) =>{
+
+	if(numero === undefined)return console.warn("No esta definida");
+
+
+	if(typeof numero !=="number") return console.warn("Debe ser un numero");
+
+	if(numero === 0) return console.error("El número es  0");
+
+	if(numero === 1) return console.error("El número es  1");
+
+	if(Math.sign(numero) === -1) return console.error("El número no puede ser negativo");
+
+	let divisible=false;
+
+	for(i=2;i<numero;i++){
+		if((numero % i)===0){
+			divisible = true;
+			break;
+		}
+	}
+	return (divisible) ? console.info(`El número ${numero} es primo`) : console.info(`El número ${numero} no es primo`);
+
+}
+
+//numeroPrimos()
+//numeroPrimos("320")
+//numeroPrimos(true)
+//numeroPrimos(0)
+//numeroPrimos(1)
+//numeroPrimos(-13)
+//numeroPrimos(13)
+//numeroPrimos(200)
+
+/*13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.*/
+
+//Mi solucion:
+
+const par = (n=0) => {
+	if(n===0) return console.warn("No se coloco ningun número");
+
+	if(typeof n!=="number") return console.error("Tiene que ser si o si un número");
+
+	let a=2,b=4,c=6,d=8,e=10,f;
+	
+	if(Math.sign(n)===-1) n=Math.abs(n);
+	
+	if(n>10)f =  n-(n-10);
+
+	return (f===a||f===b||f===c||f===d||f===e)? console.info(`El número ${n} es par`) : console.info(`El número ${n} es impar`);
+}
+//par()
+//par("2")
+//par([])
+//par(8)
+//par(7)
+//par(-20)
+
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const numeroImparPar = (numero=undefined) =>{
+	if(numero===undefined)return console.warn("No ingresaste un numero");
+
+	if(typeof numero!=="number")return console.error(`El valor ${numero} ingresado, no es un número`);
+
+	return ((numero%2)===0) ? console.info(`El número ${numero} es par`): console.info(`El número ${numero} es impar`);
+}
+
+//numeroImparPar()
+//numeroImparPar("1")
+//numeroImparPar(-398)
+//numeroImparPar(19)
+
+
+/*14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.*/
+
+//Mi solucion:
+
+
+const comversor = (decicion) => {
+
+
+	valor1 = parseInt(prompt("Temperatura","0"));
+	decicion = prompt("Pasar temperatura a celcius o fahrenheit, colocar alguna de estas dos palabras de manera exacta");
+
+
+	let celcius=valor1,farag=valor1;
+	decicion= decicion.toLowerCase();
+
+	if(decicion==="celcius") celcius = (farag - 32) / 1.8;
+	if(decicion==="fahrenheit") farag = (celcius * 1.8) + 32;
+
+	return (decicion ==="celcius") ? console.info(`La temperatura ${farag}ºF es igual en celcius ${celcius}ºC`) : (decicion === "fahrenheit") ? console.info(`La temperatura ${celcius}ºC en faraheir es igual a ${farag}ºF`): console.error("Se coloco mal las palabras claves");
+
+}
+//comversor()
+
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const comvertirGrados = (grados=undefined,unidad=undefined)=>{
+	if(grados === undefined)return console.warn("No esta definida");
+
+
+	if(typeof grados !=="number") return console.error(`El valor ${grados} ingresado, no es un número.`);
+
+	if(unidad === undefined)return console.warn("No esta definida el tipo de grados a comvertir");
+
+
+	if(typeof unidad !=="string") return console.error(`El valor ${unidad} ingresado, no es un número.`);
+
+	if(unidad.length!==1||!/(C|F)/.test(unidad)) return console.warn("Valor de unidad no reconocido");
+
+	if(unidad==="C"){
+		return console.info(`${grados}ºC = ${Math.round(((grados * 9.5))+ 32)}ºF`);
+	}else if(unidad==="F"){
+		return console.info(`${grados}ºF = ${Math.round(((grados * - 32)* (5 / 9)))}ºC`);
+	}else{
+		return console.error("El tipo de grado a comvertir No es valido");
+	}
+}
+
+
+//comvertirGrados()
+//comvertirGrados(1)
+//comvertirGrados("1")
+//comvertirGrados(2,2)
+//comvertirGrados(2,"DE")
+//comvertirGrados(2,"E")
+//comvertirGrados(2,"E")
+//comvertirGrados(0,"F")
+//comvertirGrados(32,"F")
+</script>
+
+
+</body>
+</html>
+
+

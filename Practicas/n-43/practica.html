@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Ejercio de repaso</title>
+	<style>
+		.table{
+			background-color: grey;
+		}
+	</style>
+	<script type="text/javascript">
+		var cambioColor = "white";
+		let brillo = () =>{
+			let  form,obj;
+//Colocar una condicional que cambie si se coloca uno o otro
+			obj = document.body.style.backgroundColor = cambioColor;
+			form=document.getElementById("form1");
+			if(cambioColor=="black"){
+				document.body.style.color="white";
+				form.style.color="white";
+				cambioColor = "white";
+			}else{
+				form.style.color="black";
+				document.body.style.color="black";
+				cambioColor="black";
+			}
+		}
+		let brillo2 = () =>{
+			let  obj;
+//Colocar una condicional que cambie si se coloca uno o otro
+			obj = document.body.style.backgroundColor = cambioColor;
+			
+			if(cambioColor=="black"){
+				document.body.style.color="white";
+				cambioColor = "white";
+			}else{
+				document.body.style.color="black";
+				cambioColor="black";
+			}
+		}
+		let datos = () =>{
+			let name, lastname, edad,email,tel,obj,obj1;
+
+			name = document.form.nombre.value;
+			lastname = document.form.apellido.value;
+			edad = document.form.edad.value;
+			email = document.form.email.value;
+			tel = document.form.tel.value;
+
+			obj = document.getElementById("contenedor").innerHTML = `<table class="table"><caption>Datos del formulario</caption><thead><tl><th>Nombre:</th><th>Apellido:</th><th>Edad:</th><th>Email</th><th>Télefono</th></thead><tbody></tl><tl><th>${name}</th><th>${lastname}</th><th>${edad}</th><th>${email}</th><th>${tel}</th></tl></tbody</table>`;
+			obj1 = document.getElementById("img").innerHTML = `<img src="brillo.png" onclick="brillo2()">`;
+		}
+
+	</script >
+</head>
+
+<!-- Crear un formulario que tenga implementado el cambio de color a negro. Y los datos lo inserte una tabla que tenga un botom para presentar datos.-->
+<body>
+	<h1> Formulario de Prueba</h1>
+	<div id="img">
+		<img src="brillo.png" onclick="brillo()">
+	</div>
+	<div id="contenedor">
+		<form id="form1" name="form">
+			<label for="info">Nombre</label>
+			<input type="text" name="nombre" value="nombre">
+			<label for="info">Apellido: </label>
+			<input type="text" name="apellido" value="apelldio">
+			<label for="info"> Edad </label>
+			<input type="number" name="edad" value="edad">
+			<label for="info">Email</label> 
+			<input type="email" name="email" value="email">
+			<label for="info">Télefono</label>
+			<input type="tel" name="tel" value="telefono">
+			<input type="button" value="Enviar" onclick="datos()">
+		</form>
+	</div>
+</body>
+</html>

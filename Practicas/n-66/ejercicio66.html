@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 66</title>
+</head>
+<body>
+<header>
+	<h1>Introduce 3 números:</h1>
+</header>
+<main>
+	<form name="form">
+		<input type="number" name="num1">
+		<input type="number" name="num2">
+		<input type="number" name="num3">
+		<input type="button" value="Menor a mayor" onclick="menor()">
+		<input type="button" value="Mayor de todos" onclick="mayor()">
+	</form>
+	<div id="contenedor">
+		
+	</div>
+</main>
+<script type="text/javascript">
+	let menor,mayor;
+	mayor = () =>{
+		let nume1,nume2,nume3,result1,result2,obj;
+		nume1 = parseInt(document.form.num1.value);
+		nume2 = parseInt(document.form.num2.value);
+		nume3 = parseInt(document.form.num3.value);
+
+		result = Math.max(nume1,nume2,nume3);
+		obj=document.getElementById("contenedor").innerHTML = `<h1> El número más grande es ${result}`;
+
+	}
+	menor = () =>{
+		let nume1,nume2,nume3,result1,result2,obj;
+		nume1 = parseInt(document.form.num1.value);
+		nume2 = parseInt(document.form.num2.value);
+		nume3 = parseInt(document.form.num3.value);
+
+		result = Math.min(nume1,nume2,nume3);
+		obj=document.getElementById("contenedor").innerHTML = `<h1> El número  menor es ${result}`;		
+	}
+		/*if(nume1 > nume2 && nume1 > nume3 || nume1 < nume2 && nume1 > nume3 || nume1 > nume2 && nume1 < nume3){
+			if(nume1 > nume2 && nume1 > nume3){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 1 es mayor</h1>`;
+			}if(nume1 < nume2 && nume1 > nume3){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 1 es mayor que el número 3 pero menor que el número 2</h1>`;
+			}if(nume1 > nume2 && nume1 < nume3){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 1 es mayor que el número 2 pero menor que el número 3</h1>`;
+			}
+		}else if(nume2 > nume1 && nume2 > nume3 || nume2 < nume1 && nume2 > nume3 || nume2 > nume1 && nume2 < nume1){
+			if(nume2 > nume1 && nume2 > nume3){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 2 es mayor</h1>`;
+			}if(nume2 < nume1 && nume2 > nume3){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 2 es mayor que el número 3 pero menor que el número 1</h1>`;
+			}if(nume2 > nume1 && nume2 < nume3){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 2 es mayor que el número 1 pero menor que el número 3</h1>`;
+			}
+		}else if(nume3 > nume1 && nume3 > nume2 || nume3 < nume1 && nume3 > nume2 || nume3 > nume1 && nume3 < nume1 || nume3 == nume2 && nume3 > nume1|| nume3 == nume1 && nume3 == nume2 && nume3 == nume1 || nume3 == nume2 ){
+			if(nume3 > nume1 && nume3 > nume2){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 3 es mayor</h1>`;
+			}if(nume3 < nume1 && nume3 > nume2){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 3 es mayor que el número 2 pero menor que el número 1</h1>`;
+			}if(nume3 > nume1 && nume3 < nume2){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 3 es mayor que el número 1 pero menor que el número 2</h1>`;
+			}if(nume3 == nume2 && nume3 > nume1){
+				obj = document.getElementById("contenedor").innerHTML = `<h1>El número 3 es igual a el número 2 pero menor que el número 2</h1>`;
+			}
+		}
+}*/
+</script>
+</body>
+</html>

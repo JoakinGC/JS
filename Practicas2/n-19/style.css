@@ -1,0 +1,67 @@
+.padding-margin-0{
+	padding: 0;
+	margin: 0;
+}
+
+.margin-20{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+.head{
+	padding-top: 20px;
+	padding-bottom: 100px;
+	width: 100%;
+}
+
+.bg-black{
+	background-color: lightgrey;
+}
+
+.bg-white{
+	background-color: white;
+}
+
+.padding-80{
+	padding-bottom: 80px;
+	padding-top: 80px;
+}
+
+.dp-block{
+	display: block;
+}
+
+.bg-yellow{
+	background-color: yellow;
+}
+
+.text-40{
+	font-size: 40px;
+}
+
+.text-20{
+	font-size: 20px;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.position-left{
+	position: relative;
+	left: 90%;
+}
+
+.borColor-yellow{
+
+}
+
+
+.dp-inline{
+	display: inline;
+}
+
+.width{
+	width: 500px;
+}

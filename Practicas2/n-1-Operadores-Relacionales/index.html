@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 1</title>
+</head>
+<!-- Uso de Operadores Relacionales: 
+
+Operadores: < , <= , > , >=, ==,  ===
+
+
+-->
+<body>
+	<script type="text/javascript">
+		const  edad = parseInt(window.prompt("Edad","0")); 
+
+		if(edad>=18){
+			if(edad===60){
+				document.write("<h1>Felecididades por tu 60</h1>");
+			}else if(edad>60){
+				document.write("<h1>Llegaste a tus años dorados</h1>");
+			}
+			document.write("<h1>Eres mayor de edad</h1>");
+		}else if(edad<0){
+			document.write("<h1>No existes</h1>");
+		}else if(edad<=17){
+			document.write("<h1>Eres menor de edad</h1>");
+		}else{
+			console.warning("Error");
+		}
+
+		//https://www.youtube.com/watch?v=99aSK07E3ow&list=PL2PZw96yQChxuJMja3Aq--5AfBPCMc1kL&index=21
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 3</title>
+	<!-- Ejercicio en donde se debe decidir si declarar const o variables let para que el usario no deba ingresar a cierta informacion que tengamos o no. Y luego ingresar a todas las constantes pero por medio de metodos. Y los datos salgan en consola Creado solo para un usuario a la vez. Más adelante se hara añadido con mas dificutad-->
+	<script type="text/javascript">
+	let email1,nombre,apellido,edad,conter=0;
+	const email2=[email1];
+	const name1=[nombre];
+	const lastname1=[apellido];
+	const edad1=[edad];
+
+	let enviarConsola = () => {
+		for(index in person){
+			console.log(`El ${index} es: ${person[index]}`);
+			conter++;
+			
+			if(index === "email"){
+				
+				console.log(email2.push(email1));
+				console.log(email2);
+			}else if(index === "nombre"){
+				
+				console.log(name1.push(nombre));
+				console.log(name1);
+			}else if(index ==="apellido"){
+				
+				console.log(lastname1.push(apellido));
+				console.log(lastname1);
+			}else if(index==="edad"){
+				
+				console.log(edad1.push(edad));
+				console.log(edad1);
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<head>
+		<h1>Formulario del Humano</h1>
+	</head>
+	<main>
+			<form name="form1">
+				<label>Name:</label>
+				<input type="text" name="name">
+				<label>LastName:</label>
+				<input type="text" name="lastname">
+				<label>Age:</label>
+				<input type="text" name="age">
+				<label>Email:</label>
+				<input type="text" name="email">
+				<input type="button" value="Enviar Formulario Humano" onclick="enviarConsola()">
+				<input type="button" value="reset" onclick="usr()">
+			</form>
+
+	</main>
+
+<script type="text/javascript">
+
+nombre = document.form1.name.value;
+apellido = document.form1.lastname.value;
+edad = parseInt(document.form1.age.value);
+email1 = document.form1.email.value;
+const person = {
+	nombre: nombre,
+	apellido: apellido,
+	edad: edad,
+	email: email1
+};
+let usr = () =>{
+
+	if(conter===4){
+		console.log(nombre = document.form1.name.value);
+		apellido = document.form1.lastname.value;
+		edad = parseInt(document.form1.age.value);
+		email1 = document.form1.email.value;
+		conter=0;
+	}
+}
+	</script>
+
+
+</body>
+</html>

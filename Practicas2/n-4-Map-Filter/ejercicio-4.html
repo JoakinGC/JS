@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 4</title>
+</head>
+<!-- Generar un  array que contega varios objectos que combine las condicionales y el metodo .forEach(), map y filter
+
+	Otro ejercicio que combine los Null, undefined and NaN-->
+<body>
+	<head>
+		<h1>Ejercicio 4</h1>
+	</head>
+	<main>
+		<h2>Formulario de usuarios:</h2>
+		<form name="form">
+			<label>Nombre:</label>
+			<input type="text" name="nombre">
+			<label>Apellido:</label>
+			<input type="text" name="apellido">
+			<label>Edad:</label>
+			<input type="text" name="edad">
+			<input type="button" class="button" value="Enviar">
+			<input type="button" class="button2" value="Comprobacion">
+			<div id="contenedor">
+				
+			</div>
+			<div id="contenedor1">
+				
+			</div>
+			<div id="contenedor2">
+				
+			</div>
+			<div id="contenedor3">
+				
+			</div>
+			<div id="contenedor4">
+				
+			</div>
+
+		</form>
+	</main>
+
+	<script>
+
+
+		const button = document.querySelector(".button");
+		const button2 = document.querySelector(".button2");
+		
+		class Users{
+			constructor(name,lastname,age){
+				this.name = name;
+				this.age = age;
+				this.lastname = lastname;
+			}
+		}
+		class Adultos extends Users{
+			constructor(name,lastname,age){
+				super(name,lastname,age);
+			}
+
+			saludoAd(){
+				console.log("Soy un adulto joven");
+			}
+		}
+
+		class Senores extends Users{
+			constructor(name,lastname,age){
+				super(name,lastname,age);
+			}
+
+			saludoGrande(){
+				console.log("Soy una persona grande");
+			}
+		}
+
+		class Menores extends Users{
+			constructor(name,lastname,age){
+				super(name,lastname,age);
+			}
+
+			prohibido(){
+				console.log("Soy menor de edad no puedo estar aqui");
+			}
+		}
+
+		class mayoresMayor extends Users{
+			constructor(name,lastname,age){
+				super(name,lastname,age)
+			}
+
+			saludo(){
+				alert("Soy de las pocas personas que lleguan a esta edad un gusto conocerte");
+			}
+		}
+
+
+		const div = document.getElementById("contenedor");
+		const div2 = document.getElementById("contenedor2");
+		const div3 = document.getElementById("contenedor3");
+		const div4 = document.getElementById("contenedor4");
+		const array = [];
+		button.onclick = function(){
+
+			let name,lastname,age;
+			name = document.form.nombre.value;
+			lastname = document.form.apellido.value;
+			age = Math.round(parseFloat(document.form.edad.value));
+			
+			array.push(new Users(name,lastname,age));
+			console.log(array);
+
+		}
+
+const adultos=[],senores=[],menores=[],mayores=[];
+
+
+
+
+
+
+		const busquedaAdultos = () =>{
+			array.map((ele) =>{
+				 
+				 let comprobacion = ele.age >= 18 && ele.age < 60 ? adultos.push(new Adultos(ele.name,ele.lastname,ele.age)) : console.table(adultos);
+			})
+
+		}
+		const busquedaSenores = () =>{
+			array.map((ele) =>{
+				 
+				 let comprobacion = ele.age >= 60 && ele.age < 110 ? senores.push(new Senores(ele.name,ele.lastname,ele.age)) : console.table(senores);
+			})
+
+		}
+		const busquedaMenores = () =>{
+			array.map((ele) =>{
+				 
+				 let comprobacion = ele.age <= 17 && ele.age > 0 ? menores.push(new Menores(ele.name,ele.lastname,ele.age)) : console.table(menores);
+			})
+
+		}
+		const busquedaMayores = () =>{
+			array.map((ele) =>{
+				 
+				 let comprobacion = ele.age >= 110 && ele.age < 200 ? mayores.push(new mayoresMayor(ele.name,ele.lastname,ele.age)) : console.table(mayores);
+			})
+
+		}
+		
+let contador=1;
+let contador3=1;
+let contador2=1;
+let contador4=1;
+	
+//arreglar funciones o divirlas para que funcionen cuando lo ejecutas un botons porque una vez cargado y queres cargar nuevo ya no vuelve funcionar la busqueda
+button2.onclick=function (){
+				
+				for(index of array){
+
+					let edad = index.age;
+					if(edad===18||edad>17&&edad<60){
+						alert("Eres mayor de edad");
+						
+						if(contador===1){
+							busquedaAdultos()
+							let edad,nombre;
+							let busqueda = adultos.forEach((ele) => {
+								nombre = ele.name;
+								edad = ele.age;
+								console.log(nombre);	
+								console.log(edad);
+							});
+							contador++;
+							div.innerHTML = `<h2>Adultos</h2><br><p>${nombre}, ${edad}</p>`;	
+						}
+						
+					}else if(edad>=60 && edad<110){
+						alert("Felicidades eres mayor");
+						
+						
+						if(contador2===1){
+							
+							busquedaSenores()
+							let edad,nombre;
+							senores.map((ele) => {
+								nombre = ele.name;
+								edad = ele.age;
+								console.log(nombre);	
+								console.log(edad);
+							});
+							div2.innerHTML = `<h2>Señores</h2><br><p>${nombre}, ${edad}</p>`;
+							contador2++;
+						}
+						
+					}else if(edad>=110&&edad<200){
+						alert("Eres de los pocos que llego a esta edad");
+						;
+						
+						if(contador3===1){
+							busquedaMayores()
+							let edad,nombre;
+							let busqueda = mayores.forEach((ele) => {
+								nombre = ele.name;
+								edad = ele.age;
+							});
+							div3.innerHTML = `<h2>Mayores</h2><br><p>${nombre}, ${edad}</p>`;
+							contador3++;
+						}
+						
+					}else if(edad<=17 && edad>0){
+						alert("Menor de edad");
+						
+						
+						if(contador4===1){
+							contador4++;
+							busquedaMenores()
+							let edad,nombre;
+							let busqueda = menores.forEach((ele) => {
+								nombre = ele.name;
+								edad = ele.age;
+							});
+							div4.innerHTML = `<h2>Menores</h2><br><p>${nombre}, ${edad}</p>`;
+							
+						}
+					}else if(edad<=0){
+						console.log("No existes");
+					}
+					
+				}
+			}
+
+
+	</script>
+</body>
+</html>

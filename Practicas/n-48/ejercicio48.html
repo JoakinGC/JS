@@ -1,0 +1,27 @@
+<!-- Realize un programa con introducción de datos por formulario: Introducimos un número ºC y el programa contesta en ºF.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title> Ejercicio 48</title>
+	<script>
+		let PasarCaF = () =>{
+			let celcius = document.form.celsius.value;
+			let farag = (celcius * 1.8) + 32;
+			let obj = document.getElementById("contenedor").innerHTML = farag;
+		}
+	</script>
+</head>
+<body>
+	<head>
+		<h1>Ejercicio 48</h1>
+	</head>
+	<main>
+		<form name="form">
+			<label>Temperatura en celsius:</label>
+			<input type="text" name="celsius" >
+			<input type="button" value="Pasar a ºF" onclick="PasarCaF()">
+		</form>
+		<p id="contenedor"></p>
+	</main>
+</body>

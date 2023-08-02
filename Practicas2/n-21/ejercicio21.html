@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 21</title>
+	<link href="dist/hamburgers.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<!--Ejercicio que mueva una pelota en la seccion 2 con el teclado con las letras <a,w,s,d> y la flechas, adicionalmente crear short code pesonalizizados cuando tocamos ciertas letras especiales que realizen ciertos eventos como un alert. En este caso hace control mas la inicial del objecto ctrol + a = alert, ctrol + p = prompt.-->
+<body>
+<header class="header">
+	<h1 class="text-40">Ejercicios de Dom</h1>
+</header>
+<article>
+		<button class="panel-btn hamburger hamburger--vortex" type="button">
+  			<span class="hamburger-box">
+    			<span class="hamburger-inner"></span>
+  			</span>
+		</button>
+</article>
+<aside class="panel">
+	<nav class="menu">
+		<a href="#section1">Reloj</a>
+		<a href="#section2">Juego de la bola</a>
+		<a href="#section3">Secion 3</a>
+		<a href="#section4">Secion 4</a>
+		<a href="#section5">Secion 5</a>
+	</nav>
+</aside>
+	<main>
+		<section id="section1" class="section">
+			<h2>Reloj Virtual y Alarma</h2>
+		</section>
+		<section id="section2" class="section">
+			<h2>Juego de Boton</h2>
+			<section class="juego-fondo flex">
+					<div class="bola">
+					</div>
+			</section>
+		</section>
+		<section id="section3" class="section">
+			<h2>Secion 3</h2>
+		</section>
+		<section id="section4" class="section">
+			<h2>Secion 4</h2>
+		</section>
+		<section id="section5" class="section">
+			<h2>Secion 5</h2>
+		</section>
+	</main>
+	<script type="module" src="app/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 7</title>
+</head>
+<!--
+9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+-->
+
+<body>
+
+<script type="text/javascript">
+	
+/*9) Programa una función que obtenga un número aleatorio entre 501 y 600.*/
+
+//Solucion Propia:
+
+
+const numeroAleatorio500 = () => console.info(Math.round(Math.random() * (600 - 501) + 501));
+
+	//numeroAleatorio500()
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const aleatorio = () => console.info(Math.round((Math.random() * 100)+500));
+
+//aleatorio()
+
+
+/*10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.*/
+
+//Solucion propia:
+
+const capicuo = (numCap=0) =>{
+	if(!numCap)return console.warn("No es un numero");
+	if(typeof numCap === "string") return console.warn("No es un número");
+	let alReves = numCap.toString().split("").reverse().join(""),b = parseFloat(alReves);
+	return (b === numCap) ? console.info(`Se leen de la misma manera el número ${numCap} y el ${b}`) : console.info("No es número capicuo");
+
+}
+
+//capicuo()
+//capicuo("2002")
+//capicuo(2002)
+//capicuo(34)
+
+//Fin
+
+//Solución Jon Mircha:
+
+const capicua = (numero=0) =>{
+	if(!numero)return console.warn("No ingresaste un número");
+
+	if(typeof numero !== "number") return console.warn(`El valor ${numero} ingresado. NO es un número`);
+
+	//Hay que dajarlo como string a los numeros porque cuando lo das vuelta al numero y lo guardas en la variable este borra los ceros de adelante y nunca van a ser lo mismo
+
+
+	numero = numero.toString();
+	let alReves = numero.split("").reverse().join("");
+
+
+	return (numero === alReves) ? console.info(`Sí es capícua. Número orginal ${numero}.Número al reves ${alReves}`) : console.info(`No es capícua. Número orginal ${numero}.Número al reves ${alReves}`)
+
+}
+
+//capicua()
+//capicua("19")
+//capicua({})
+//capicua(2000)
+//capicua(2002)
+//capicua(18.99)
+//capicua(212.212)
+
+
+
+/*11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.*/
+
+const factorial = (n=undefined) =>{
+	if(!n)return console.warn("No esta definida");
+	if(typeof n !=="number") return console.warn("Debe ser un numero");
+	if(n <= 0) return console.warn("Solo enteros positivos")
+	n = Math.round(n);
+	let b=1;
+	for(i=1;i<=n;i++) b*=i;
+	return console.info(b);		
+}
+
+//factorial()
+//factorial("sa")
+//factorial(5)
+//factorial(6)
+//factorial(50)
+//factorial(-1)
+//factorial({})
+//factorial(4.5)
+
+
+//Fin
+
+//Solución Jon Mircha:
+
+
+const factorial1 = (numero=undefined) =>{
+	if(numero === undefined)return console.warn("No esta definida");
+
+
+	if(typeof numero !=="number") return console.warn("Debe ser un numero");
+
+	if(numero === 0) return console.error("El número es  0")
+
+	if(Math.sign(numero) === -1) return console.error("El número no puede ser negativo")
+
+	let factorial=1;
+
+
+	for(i=numero;i>1;i--) factorial*=i;
+
+	return console.info(`El factorial de ${numero} es ${factorial}`);
+}	
+
+factorial1()
+factorial1("5")
+factorial1([2,3,4])
+factorial1(0)
+factorial1(-5)
+factorial1(5)
+factorial1(50)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Jon Mircha 6</title>
+</head>
+<body>
+    
+    <script> 
+    
+    //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+//Forma sin método:
+let palabraGuardada="";
+    const invertirPalabras = (a="") =>{
+        let c = 0,b="",prueba,d;
+        for(i=1;i<=a.length;i++){
+            c++;
+        }
+        prueba =  (typeof a === "string") ? d = a.split("") : console.warn("No es un string");
+        console.info(prueba)
+        c--;
+//        console.info(c);
+//        console.log(a.length);
+        //console.log(c == a.length);
+        //console.info(d.toString(d[4]));
+       // console.log(d.join(" "));
+        //console.log(b !="3");
+        if(typeof a === "string"){
+            //console.log(d);
+            //console.log(c);
+            for(i=1;i<=a.length;i++){
+                let comprobacion = (c == a.length) ? b = b + d[c]  : b = b+d[c];
+                console.log(comprobacion);
+                console.clear()
+                c--;
+            }
+            console.log(b)
+            palabraGuardada=b;
+            //console.log()
+
+        } 
+    }
+    //invertirPalabras("Hola")
+    //invertirPalabras("Hola mundo")
+    //invertirPalabras(5)
+    //invertirPalabras(function hola(){})
+    //invertirPalabras("orrep ocol zeverra")
+    //invertirPalabras("salas")
+
+
+    //Ahora con metodo:
+
+    const invertirStringMetodo = (a="") =>{
+        let array,b;
+        const prueba = (typeof a === "string") ? array = a.split("").reverse().join("") : console.warn("No es un string");
+        console.log(prueba);
+        console.log(array)
+        
+     }
+     //invertirStringMetodo("Hola mundo")
+    
+     
+//Solucion Jon Mircha:
+
+const invertir = (cadena="") => 
+(!cadena)
+? console.warn("No ingresaste una codena de texto")
+:console.info(cadena.split("").reverse().join(""));
+
+//invertir();
+//invertir("Hola mundo");
+//invertir("JavaScript es un lenguaje de programación increible");
+//invertir()
+
+
+//6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+
+const buscador = (a="",b="") =>{
+    /*if(typeof a === "string" && typeof b === "string")
+    {
+        const expReg = new RegExp(b,"gi");
+        let lorem = a.match(expReg);
+        console.info(lorem);
+    }else{
+        console.warn("No es un string");
+    }*/
+    const expReg = new RegExp(b,"gi");
+    let lorem;
+    const prueba = (typeof a === "string" && typeof b === "string") ? lorem = a.match(expReg):  console.warn("Tiene que ser un string los dos parametros");
+    console.log(prueba);
+    console.clear();
+    console.info((typeof lorem === "undefined" || typeof lorem === "null") ? "Tiene que ser un string los dos parametros" : lorem.length);
+    
+}
+//buscador("Lorem isuue Lorem, lorem","lorem")
+//buscador("Lorem lore",2)
+//buscador(2,"Lorem")
+
+//Fin
+
+
+//Solución Jon Mircha sin usar expresion expresada:
+
+
+const textoEnCadena = (cadena="",texto="") =>{
+    if(!cadena)return console.warn("No ingresaste el texto largo");
+
+    if(!texto) return console.warn("No ingresaste la palabra a evaluar");
+
+    let i = 0,
+    contador = 0;
+
+
+    // Se utiliza !== -1 para  que cuando busque nuestra palabra y no la encuentra arroje un -1.
+    while(i!==-1){
+        i = cadena.indexOf(texto,i);
+        if(i!==-1){
+            i++;
+            contador++;
+        }
+    }
+    return console.info(`La palabra ${texto}, se repite ${contador} veces`);
+}
+
+
+//textoEnCadena()
+//textoEnCadena("","mundo")
+//textoEnCadena("mundo mundo mundo")
+//textoEnCadena("hola mundo adios mundo", "mundo")
+
+
+//7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+const comprobarPolindromo = (a="") =>{
+    if(!a) return console.warn("No es un string")
+    invertirPalabras(a)
+        
+        let invertirA =  palabraGuardada;
+        let comprobacion = (invertirA == a) ? console.info(true) : console.warn(false);
+        return comprobacion;
+}
+
+//comprobarPolindromo("salas")
+//comprobarPolindromo("prueba")
+
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const polindromo = (palabra = "") =>{
+    if(!palabra) return console.warn("No ingresaste una palabra");
+
+    palabra = palabra.toLowerCase();
+    //Para que no alla problemas con las mayusculas y minisculas
+    let alReves = palabra.split("").reverse().join("");
+
+    return (palabra === alReves) ? 
+    console.info(`Si es polindromo, Palabra original ${palabra}, Palabra al reves ${alReves}`) : 
+    console.info(`No es polindromo, Palabra original ${palabra}, Palabra al reves ${alReves}`);
+
+}
+
+//polindromo()
+//polindromo("Hola mundo")
+//polindromo("SaLas")
+//polindromo()
+
+//8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5. 
+
+
+const cortarPatrones = (frase="",patron="")=>{
+
+
+
+    if(typeof frase==="string" && typeof patron==="string"){
+
+        const expReg = new RegExp(patron,"gi");
+        let lorem = frase.match(expReg),contador="";
+    
+    
+        if(typeof lorem === "null" || typeof lorem === "undefined"){
+             for(i=1;i<=lorem.length;i++){
+                    i.toString()
+                    contador=contador+i;
+                } 
+                let a = contador.split("");
+            console.info(a.toString());
+        }
+    }else{
+        console.error("No es un string");
+    }
+}
+
+
+//cortarPatrones("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+//cortarPatrones("xyz1, xyz2, xyz3, xyz4 y xyz5", 2)
+//cortarPatrones("hola mundo", "xyz")
+//cortarPatrones({name:"Prueba"}, "xyz")
+
+//Fin
+
+
+//Solución Jon Mircha:
+
+const eliminarCaracteres = (texto="",patron="") => (!texto) ? console.warn("No ingresaste un texto") : (!patron) ? console.warn("No ingresaste un patrón de carecteres") : console.warn(texto.replace(new RegExp(patron, "ig"),""));
+
+//eliminarCaracteres()
+//eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xy")
+//eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5")
+eliminarCaracteres("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem viverra aliquet eget sit amet tellus cras adipiscing enim. Diam ut venenatis tellus in metus vulputate eu scelerisque. Purus non enim praesent elementum facilisis leo vel fringilla. Accumsan lacus vel facilisis volutpat est velit egestas. Vitae auctor eu augue ut lectus arcu bibendum at. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Vel elit scelerisque mauris pellentesque pulvinar. Lorem dolor sed viverra ipsum nunc aliquet bibendum. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Erat imperdiet sed euismod nisi porta lorem. Auctor neque vitae tempus quam pellentesque nec nam. Malesuada fames ac turpis egestas integer eget. In fermentum posuere urna nec tincidunt praesent.!","[a-z]")
+
+
+
+
+
+
+
+
+
+/*
+var myRe = /ab* /g; //sacar espacio que hay entre "ab* /" para que no cierre el comentario aca
+var str = 'abbcdefabh';
+var myArray;
+
+while ((myArray = myRe.exec(str)) !== null) {
+  var msg = 'Se ha encontrado ' + myArray[0] + '. ';
+  msg += 'La siguiente coincidencia empieza en el indice ' + myRe.lastIndex;
+  console.log
+  (msg);
+}*/
+</script>
+</body>
+</html>
+
+
+
+
+

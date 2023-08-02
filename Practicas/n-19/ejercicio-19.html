@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 19</title>
+	<script>
+
+		let nota1,nota2,nota3,media;
+		nota1 = window.prompt("Nota 1","0");
+		nota1 = parseInt(nota1);
+		nota2 = window.prompt("Nota 2","0") ;
+		nota2 = parseInt(nota2);
+		nota3 = window.prompt("Nota 3","0");
+		media = (nota1 + nota2 + nota3)/ 3;
+
+		if(media > 15){
+			alert("Su hijo esta aprobado");
+			document.write("<h1>Aprobado</h1");
+		}else{
+			alert("Su hijo reprobo");
+			document.write("<h1>Desaprobado</h1");
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

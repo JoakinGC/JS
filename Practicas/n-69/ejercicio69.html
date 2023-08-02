@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 69</title>
+	<script type="text/javascript">
+		let aleato, numAd, adivinanza,obj,veces=0;
+		aleato = Math.floor(Math.random()*100);
+		adivinanza = () =>{
+			veces++;
+			numAd = parseInt(document.form.numeAd.value);
+			obj = document.getElementById("contenedor");
+			console.log(aleato,"y",numAd,"y",veces);
+			if(veces < 5){
+				if (aleato==numAd) {
+					alert("HAS GANADO");
+					obj.innerHTML = "<h2>Has ganado</h2>";
+					veces=0;
+				}else if(aleato>numAd){
+					alert("Más grande");
+					obj.innerHTML = "<h2>Te falta màs</h2>";
+				}else if(aleato<numAd){
+					alert("Menos");
+					obj.innerHTML = "<h2>Menos</h2>";
+				}
+			}else if(veces>=5){
+				alert("Has perdido");
+				document.writeln("Fallaste");
+				obj.innerHTML = "<p>Perdiste</p>";
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Adivina el número:</h1>
+	</header>
+	<main>
+		<p>Adivina un número de 1 a 100</p>
+		<form name="form">
+			<input type="number" name="numeAd">
+			<input type="button" name="button" value="Adivina" onclick="adivinanza()">
+		</form>
+		<div id="contenedor">
+			
+		</div>
+	</main>
+</body>
+</html>

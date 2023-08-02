@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<!--
+15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+16) Programa una función que devuelva el monto final después de aplicar undescuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+-->
+<body>
+<script>
+/*15) Programa una función para convertir números de base binaria a decimal
+ y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.*/
+
+
+//Mi solucion:
+
+const transformar = (numero=undefined,decision=undefined) =>{
+    if(numero===undefined) return console.warn("No esta definido");
+
+    if(typeof numero !== "number") return console.error("Tiene que ser un número");
+
+    if(decision === undefined) return console.warn("No se seleciono la opcion");
+
+
+    if(typeof decision !== "string") return console.error("La comversion tiene que ser una cadena de texto");
+
+    if(!/(B|D)/.test(decision))return console.error("Tiene que elegir con una letra de 'B' binario o 'D' decimal");
+
+    let numOriginal = numero,result=[0,1],operacion;
+    numero = numero.toString();
+    
+    
+    if(decision === "B" && !/(3-9)/.test(numero)){
+        for(i=0;i>=result.length;i++){
+            operacion = numOriginal%2;
+            numOriginal=numOriginal/2; 
+            result.push(operacion);
+            console.log(result)
+        }
+        result.shift();
+        result.shift();
+      
+        return console.info(`El número binario '${numOriginal}' es en decimal: ${result}`);
+    }
+    
+    //NO EJECUTAR ESTA FUNCION GRACIAS/DON'T RUN THIS FUNCTION. THANKS
+    
+}
+
+//transformar()
+//transformar("1")
+//transformar(1)
+//transformar(1,{})
+//transformar(1,"F")
+//transformar(100,"B")
+//transformar(234,"D")
+
+//Fin
+
+/*Notas:
+
+    Los metodos parseInt() tiene dos parametros el primero que seria el string que queremos transformar en un numero pero el segundo parametro es para pasarle la base y eso sirve para decirle al  método que el decimal lo queremos pasar a binario cuando es base "2" como se ve en el ejercicio 10 primero 
+    la solucion de JonMircha.
+
+    toString() sucede algo similar con parseInt() pero de manera contraria
+    es para pasar de un binario a decimal cuando la base o el segundo parametro
+    que le pasamos al método es "10". 
+
+
+*/
+
+//Solucion Jon Mircha:
+
+const comvertirBinarioDecimal = (numero=undefined,base=undefined)=> {
+    if(numero === undefined) return console.warn("El numero no esta definido");
+
+    if(base === undefined) return console.warn("La base no esta definido");
+
+    if(typeof numero !== "number") return console.error("El número NO es un número");
+
+    if(typeof base !== "number") return console.error("La base NO es un número");
+
+    if(base === 2){
+        return console.info(`${numero} base ${base} = ${parseInt(numero,base)} base 10`);
+    }else if(base===10){
+        return console.info(`${numero} base ${base} = ${numero.toString(2)} base 2`);
+    }else{
+        return console.warn("El tipo de grado no es a comvertir");
+    }
+}
+
+//comvertirBinarioDecimal()
+//comvertirBinarioDecimal(2)
+//comvertirBinarioDecimal("2",2)
+//comvertirBinarioDecimal(2,"2")
+//comvertirBinarioDecimal(101,2)
+//comvertirBinarioDecimal(4,10)
+
+/*16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.*/
+
+//Mi solucion:
+
+
+const descuento = (cantidad=undefined,porcentaje=undefined) =>{
+    if(cantidad===undefined) return console.warn("No esta definido");
+
+    if(porcentaje===undefined) return console.warn("No esta definido el porcentaje");
+
+    if(typeof cantidad !== "number" ||typeof porcentaje !== "number")return console.error("El porcerntaje o el precio tiene que ser números");
+
+    //Falto validacion de numeros negativos y si es cero el numero
+
+    return console.info(`El precio es ${cantidad}$ y su descuento es ${porcentaje}% = ${(-((cantidad/100)*porcentaje)+cantidad)}`);
+}
+
+//descuento()
+//descuento("2")
+//descuento("2",2)
+//descuento(2,"2")
+//descuento(1000,20)
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const aplicarDescuento = (monto = undefined, descuento = 0)=>{
+    if(monto === undefined) return console.warn("El monto no esta definido");
+
+    if(typeof monto !== "number") return console.error("El monto tiene que ser un número");
+
+    if(monto === 0) return console.error("El monto no puede ser cero");
+
+    if(Math.sign(monto)===-1)return console.error("El monto no puede ser negativo");
+
+    if(typeof descuento !=="number") return console.error("El descuento tiene que ser un número");
+
+    if(Math.sign(descuento)===-1)return console.error("El descuento no puede ser negativo");
+
+    return console.info(`${monto}$ - ${descuento}% = ${monto-((monto*descuento)/100)}$`);
+}
+
+//aplicarDescuento()
+//aplicarDescuento("2")
+//aplicarDescuento(-1000)
+//aplicarDescuento(1000,"20")
+//aplicarDescuento(1000,-20)
+//aplicarDescuento(1000)
+//aplicarDescuento(1000,25)
+
+/*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).*/
+
+//Mi solucion:
+
+const date = (anoes=undefined,meses=undefined,dia=undefined) =>{
+    if(anoes===undefined||meses===undefined||dia===undefined) return console.warn("No se coloco la fecha");
+
+    if(typeof anoes!=="number"||typeof meses!=="number"||typeof dia!=="number") return console.error("La fecha '", anoes,",",meses,",",dia,"' tiene que ser numeros todos");
+
+    let fecha1 = new Date(anoes,meses,dia),
+    fecha2=new Date(),anoes1,anoes2;
+
+    fecha1 = parseInt(fecha1.getFullYear().toString());
+    fecha2=parseInt(fecha2.getFullYear().toString());
+    
+    
+    return console.info(`La cantidad de años que paso desde "${fecha1}" hasta "${fecha2} es: ${fecha2-fecha1}"`)
+}
+
+//date()
+//date("año")
+//date("año","meses")
+//date("datos","meses","dias")
+//date(2,"meses","dias")
+//date(2003,6,"dias")
+//date(1984,4,23)
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const calcularAnios = (fecha=undefined) =>{
+    if(fecha===undefined) return console.warn("No ingresaste la fecha");
+
+    if(!(fecha instanceof Date)) return console.error("El valor que ingresaste no es una fecha válida.");
+
+    let hoyMenosFecha = new Date().getTime() - fecha.getTime(),
+     aniosEnMs = 1000 * 60 * 60 * 24 * 365,
+     aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMs);
+
+    return (Math.sign(aniosHumanos) === -1)
+    ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`):(Math.sign(aniosHumanos)===1) ?
+    console.info(`Han pasado ${aniosHumanos} años, desde ${fecha.getFullYear()}`) : console.info(`Estamos en el año actual ${fecha.getFullYear()}`);
+}
+
+
+
+
+
+
+//calcularAnios()
+//calcularAnios(23)
+//calcularAnios(new Date())
+//calcularAnios(new Date(1984,4,23))
+
+</script>
+    
+</body>
+</html>

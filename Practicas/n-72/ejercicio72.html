@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 72</title>
+</head>
+<!--
+	Programa donde se introducen 3 números y muestra cual es el mayor de los 3.-->
+<body>
+
+	<header>
+		<h1>
+			Mayor:
+		</h1>
+	</header>
+	<main>
+		<form name="form">
+			<label>Número 1:</label>
+			<input type="number" name="nume1">
+			<input type="number" name="nume2">
+			<input type="number" name="nume3">
+			<input type="button" value="Mayor" onclick="mayor()">
+		</form>
+		<div id="contenedor">
+			
+		</div>
+	</main>
+	<script type="text/javascript">
+		let mayor, num1,num2,obj;
+		
+		mayor = () =>{
+			num1 = document.form.nume1.value;
+			num2 = document.form.nume2.value;
+			num3 = document.form.nume3.value;
+			let result = Math.max(num1,num2,num3);
+			obj = document.getElementById("contenedor").innerHTML = `<h2>Él mayor es: ${result}</h2>`;
+		}
+	</script>
+</body>
+</html>

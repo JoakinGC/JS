@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<!-- ¿Què realiza la instruciòn eval()?-->
+<head>
+<script>
+function calcula()
+{
+document.datos.respuesta.value = eval(document.datos.entrada.value)
+}
+</script>
+</head>
+<body>
+<form name="datos" action="Ejercicio.html" >
+Escribe una fórmula matemática, por ejemplo: (2+3)*10
+<input type="text" size="20" name="entrada" />
+<input type="button" name="B1" value="Ejecuta" onclick="calcula()" />
+<br /><br />
+Respuesta:<input type="text" size="20" name="respuesta"/>
+<br /><br />
+<input type="reset" name="B2" value="Reset" />
+</form>
+</body>
+<!-- La funcion eval() evalua el string y este ejecuta codigo para saber si hay una operacion matematica de casi cualquier cosa, ademas solo es valida si se coloca una operacion pero si se coloca de manera literan '2 mas 2' habra error, ademas es una funcion muy insegura por lo que no recomendable usar.-->
+</html>

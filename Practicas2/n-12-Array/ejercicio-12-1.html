@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+</head>
+<!--
+24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+-->
+<body>
+<script>
+/* 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos,el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.*/
+
+//Mi solucion :
+
+const ordenamientoDeNumeros = (numeros=[]) =>{
+    if(numeros.length===0) return console.error(`Tiene que tener elementos el array`);
+
+    if(!(numeros instanceof Array)) return console.error(`"${numeros}" tiene que ser un array.`);
+
+    
+    let array1=numeros.slice() ,descendente=[],ascendente=[];
+    
+    for(num of numeros){
+        if(typeof num !=="number") return console.error("Los elementos dentro de un array tienen que ser números");
+    }
+
+
+
+//console.log(array1)
+//let posicion=array1.length;
+/*for(i=1;i<=array1.length;i++){
+
+	if(array1[i]===(Math.max(...array1))) {
+		ascendente.push(array1[i]);
+		array1.splice(array1[i],1);
+	}
+
+	if(array1[i]===(Math.min(...array1))){
+		 descendente.push(array1);
+		 array1.splice(array1[i],1);
+	}
+
+	if(array1[i]<=(Math.max(...array1))&&array1[i]>(Math.min(...array1))){
+
+	}
+
+}	*/
+	//[4,2,8] false,false,true= i=1 > i=0
+
+
+
+//console.log(ascendente)
+//console.log(descendente)
+
+   	
+   			/*array1.forEach((ele,po)=>{
+
+   			if(numMay===ele){
+
+   				ascendente.push(numMay);
+    			array1.splice(po,1);
+
+    			} 	
+    		})
+   		})
+   }
+}
+for(i=1;i<=numeros.length;i++){
+
+	if(array2.length===0) break;
+	let numMen = Math.min(...array2)
+
+     descendente = array2.map((elem) => { 
+
+     	array2.forEach((ele,po)=>{
+
+    		if(numMen===ele){
+
+    			descendente.push(numMen);
+    			array2.splice(po,1);
+
+    			}
+    		})
+    	})
+    }*/
+
+
+//console.log(numeros)
+    return console.info(`originales:${numeros}
+Ascendentes:${numeros.sort((a,b)=> a-b)}
+Descendentes:${numeros.sort((a,b) =>a-b).reverse()}
+    	`);
+}
+
+//ordenamientoDeNumeros()
+//ordenamientoDeNumeros("2")
+//ordenamientoDeNumeros(["s"])
+//ordenamientoDeNumeros([7,6,9,10,4])
+//ordenamientoDeNumeros([4,4,8,9])
+
+
+//Fin
+
+//Solucion de jon mircha:
+
+const ordenarArreglo = (arr=undefined)=>{
+
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es array");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	for(num of arr){
+		if(typeof num!=="number") return console.error(`El valor "${num}" ingresado, NO es un número`);
+	}
+
+	return console.info({
+		arr,
+		asc: arr.map(ele => ele).sort(),
+		des:arr.map(ele=>ele).sort().reverse()
+	});
+}
+
+//ordenarArreglo()
+//ordenarArreglo("s")
+//ordenarArreglo([])
+//ordenarArreglo([2,{}])
+//ordenarArreglo([2,3,5,7,9,1,2])
+
+
+/*25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].*/
+
+//Mi solucion :
+
+const duplicadosOff = (array=[]) =>{
+	if(array.length===0) return console.warn(`Tiene que tener elementos el array`);
+
+    if(!(array instanceof Array)) return console.error(`"${array}" tiene que ser un array.`);
+
+
+// dos for el primero que analize los elementos y lo guarde en una variable y otro que vea si son iguales el de afuera con el de adentro de esa forma los compara
+
+//["x", 10, "x", 2, "10", 10, true, true]
+
+    let array2=[],position=0,counter=0;
+    for(ele of array){
+    	//console.log(ele)
+    	//console.log("Posicion vale=",position)
+
+       for(ele2 of array){
+
+       		//console.log(ele2)
+       		
+       		if(ele===ele2){
+       			counter++;
+       			if(counter>1) array.splice(position,1); 
+       		} 
+       		
+       		
+       		position++;
+       }
+       position=0;
+       counter=0;
+    }
+    return console.info(array);
+}
+
+//duplicadosOff()
+//duplicadosOff("3")
+//duplicadosOff(["x", 10, "x", 2, "10", 10, true, true])
+//duplicadosOff(["x", 10, "x", 2, "10", 10, true, true,{},[],{}])
+
+//No funciona con objectos
+
+// Version con Métodos:
+
+
+
+
+
+const duplicadosConMetodos = (data=[]) =>{
+	if(data.length===0) return console.warn(`Tiene que tener elementos el array`);
+
+    if(!(data instanceof Array)) return console.error(`"${data}" tiene que ser un array.`);
+
+    let result = data.filter((item,index)=>{
+      	return data.indexOf(item) === index;
+    })
+
+    return console.info(result);
+}
+
+//duplicadosConMetodos()
+//duplicadosConMetodos("s")
+//duplicadosConMetodos([1,2,6,1,2,5,9,'33','33'])
+
+//console.log(result); //[1,2,6,5,9,'33']
+
+//Fin
+
+
+//Solucion de jon mircha:
+
+const quitarDuplicados = (arr=undefined)=>{
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es array");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	if(arr.length===1) return console.error("El arreglo debe tener al menos 2 elementos.");	
+	// No tendria sentido si la funcion evalua a un solo elemento.
+
+	return console.info({
+		original:arr,
+		sinDuplicados: arr.filter((ele,position,array) => array.indexOf(ele)===position)
+	})
+}
+
+//quitarDuplicados()
+//quitarDuplicados({})
+//quitarDuplicados([])
+//quitarDuplicados([1])
+//quitarDuplicados(["x", 10, "x", 2, "10", 10, true, true])
+
+// Misma solucion pero con un nuevo tipo de dato de JS llamado SET:
+
+const quitarDuplicadosConSet = (arr=undefined)=>{
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es array");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	if(arr.length===1) return console.error("El arreglo debe tener al menos 2 elementos.");	
+	
+
+	return console.info({
+		original:arr,
+		sinDuplicados: [... new Set(arr)]
+	})
+
+}
+
+//quitarDuplicadosConSet()
+//quitarDuplicadosConSet({})
+//quitarDuplicadosConSet([])
+//quitarDuplicadosConSet([1])
+//quitarDuplicadosConSet(["x", 10, "x", 2, "10", 10, true, true])
+
+
+/*26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
+
+//Mi solucion:
+
+const sacarPromedio = (numeros=[]) =>{
+	if(numeros.length===0) return console.error(`Tiene que tener elementos el array`);
+
+    if(!(numeros instanceof Array)) return console.error(`"${numeros}" tiene que ser un array.`);
+
+    let sumaDeTodosNum=0;
+
+    for(num of numeros){
+        if(typeof num !=="number") return console.error("Los elementos dentro de un array tienen que ser números");
+
+        sumaDeTodosNum+=num;
+    }
+
+    return console.info(`El promedio de "${numeros}" es:${sumaDeTodosNum/numeros.length}`);
+}
+
+//sacarPromedio()
+//sacarPromedio("e")
+//sacarPromedio(["E",2])
+//sacarPromedio([9,8,7,6,5,4,3,2,1,0])
+
+
+//Fin
+
+//Solucion de jon mircha:
+
+const promedio = (arr=undefined) =>{
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es array");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	for(num of arr){
+		if(typeof num!=="number") return console.error(`El valor "${num}" ingresado, NO es un número`);
+	}
+
+	return console.info(
+		arr.reduce((total,ele,posicion,arr)=>{
+			total+=ele;
+			if(posicion===arr.length-1){
+				return `El promedio de ${arr.join(" + ")} es  ${total / arr.length}`;
+			}else{
+				return total;
+			}
+		})
+	)
+}
+//promedio()
+//promedio("S")
+//promedio([])
+//promedio([1,"2"])
+//promedio([1,2,3,4,5,6,7,8,9,0])
+
+
+</script>    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE  html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title> Ejercicio 62</title>
+	<style type="text/css">
+		table{
+			font-family: sans-serif;
+			border: 2px solid grey;
+			border-collapse: collapse;
+		}
+		tr,th{
+			border: 2px solid grey;
+		}
+	</style>
+	<script>
+	let multi = () => {
+
+		let num1 = parseInt(document.form.num1.value);
+		let num2 = parseInt(document.form.num2.value);
+		console.log(num1);
+		console.log(num2);
+
+		let result,x;
+		x = "<table>";
+		
+		for (i=1;i<=num2;i++) {
+			console.log("Funciono");
+			let e = i;
+			console.log(e);
+			result = num1 * e;
+			console.log(`${num1} x ${e} = ${result}`);
+
+			for(j = 0;j <= 0; j++ ) {
+				console.log("Funciono 2");
+				x = x + "<tr>";
+				x = x + `<th> ${num1} x ${e}</th>`;
+				x = x + `<th>=</th>`;
+			 	x = x + `<th>${result}</th>`;
+				x = x +`</tr>`;
+				
+				}
+			}
+		document.getElementById("contenedor").innerHTML = x;
+		}
+		
+
+	
+
+
+	</script>
+</head>
+<body>
+	<h1>Multiplicación</h1>
+	<form name="form">
+		<label>Número 1:</label>
+		<input type="number" name="num1">
+		<label>Número 2:</label>
+		<input type="number" name="num2">
+		<input type="button" name="datos" value="multiplicar" onclick="multi()">
+	</form>
+	<div id="contenedor">
+		
+	</div>
+
+</body>
+</html>

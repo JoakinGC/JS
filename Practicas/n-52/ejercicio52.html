@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 52</title>
+	<script>
+let pesoA = () =>{
+	let valor = document.getElementById("sexo");
+	let  sexo1 = valor.options[sexo.selectedIndex].value;
+	console.log(sexo1); 
+	if (sexo1 == 'Femenino'){
+		let peso1 = parseFloat(document.form.peso.value);
+		let edad1 = parseFloat(document.form.edad.value);
+		let alt1 = parseFloat(document.form.alt.value);
+		
+		let pesoAp = 50 + ((alt1 - 150) / 4)* 3 + (edad1 - 20) / 4 * 0.9;
+		console.log(pesoAp);				
+		let obj = document.getElementById("contenedor").innerHTML = `<input type="text" value="${pesoAp}">`;
+		alert(`Tú peso es: ${pesoAp}`);
+	}else{
+		let peso1 = parseInt(document.form.peso.value);
+		let edad1 = parseInt(document.form.edad.value);
+		let alt1 = parseInt(document.form.alt.value);
+		let pesoAp = 50 + ((alt1 - 150) / 4)* 3 + (edad1 - 20) / 4;
+		let obj = document.getElementById("contenedor").innerHTML = `<input type="text" value="${pesoAp}">`;
+		alert(`Tú peso es: ${pesoAp}`);
+		};
+	};
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Ejercicio 52</h1>
+	</header>
+	<main>
+		<h2>¿Cúal es tú peso aproximado?</h2>
+		<form name="form">
+			<label>Nombre:</label>
+			<input type="text" size="20" name="name">
+			<label>Altura:</label>
+			<input type="number" name="alt" value="En cm">
+			<label>Peso actual:</label>
+			<input type="number" name="peso" value="peso en KG">
+			<label>Sexo:</label>
+			<select id="sexo">
+				<option value="Masculino">Masculino</option>
+				<option value="Femenino">Femenino</option>
+				<option value="Otro">Otro</option>
+			</select>
+			<label>Edad:</label>
+			<input type="number" name="edad">
+			<input type="button" value="Peso aproximado" onclick="pesoA()">
+			<input type="reset" value="reset">
+			<div id="contenedor">
+				
+			</div>
+
+		</form>
+	</main>
+</body>
+</html>

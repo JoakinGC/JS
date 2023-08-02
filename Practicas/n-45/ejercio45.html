@@ -1,0 +1,43 @@
+<!--Realizar un programa en el cual se introduce un valor numérico en un FORM y como resultado se muestran el resultado de elevar el número al cuadrado y también el resultado de elevar el número al cubo.
+
+a) Realizar con una función.
+b) Realizar con al menos , DOS funciones.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title> Ejercicio 45</title>
+
+	<script type="text/javascript">
+		let elevar2 = () =>{
+
+			let poten,num,result;
+			num = document.form.number.value;
+			poten = num ** 2;
+			return result = document.getElementById("result").innerHTML = `<input type="text" value="${poten}">`;
+		}
+		let elevar3 = () =>{
+			let num,poten,result;
+			num = document.form.number.value;
+			poten = num ** 3;
+			return result = document.getElementById("result").innerHTML = `<input type="text" value="${poten}">`;
+		}
+	</script>
+</head>
+<body>
+	<head>
+		<h1>Ejercicio 45</h1>
+	</head>
+	<main>
+		<form name="form">
+			<label>Elevar un número:</label>
+			<input type="number" name="number">
+			<input type="button" name="b1" value="Elevar por 2" onclick="elevar2()">
+			<input type="button" name="b2" value="Elevar por 3" onclick="elevar3()">
+			<label> Resultado</label>
+			<div id="result">
+				<input type="text">
+			</div>
+		</form>
+	</main>
+</body>

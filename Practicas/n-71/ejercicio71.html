@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 71</title>
+</head>
+<!--
+	a) Crear programa donde se introduce una temperatura en ºCelsius sale el resultado en ºFahrenheit.
+	
+	b) Añade una función que recibe como parámetro ºFahrenheit y que saca per pantalla las seguientes frases:
+
+		1) Si ºF está entre 14 y 32, sale la frase “Temperatura baja”
+		2) Si ºF está entre 32 y 68, sale la frase “Temperatura adecuada”
+		3) Si ºF está entre 68 y 96, sale la farse “Temperatura alta”
+		4) Si no está entre ningún caso anterior la frase “Temperatura desconocida”
+
+	c) Añadir función que recibe ºF introducida por el usuario i sale por pantalla los ºC correspondientes.-->
+<body>
+	<header>
+		<h1>Pronostico</h1>
+	</header>
+	<main>
+		<form name="form">
+			<label>Témperatura en celcius</label>
+			<input type="number" name="celcius">
+			<input type="button" value="Esnviar" onclick="transformCel()">
+			<label>Temperatura en Fahrenheit</label>
+			<input type="number"  name="faraheir">
+			<input type="button" value="Enviar" onclick="transformFar()">
+		</form>
+		<div id="contenedor">
+			
+		</div>
+		<div id="contenedor2">
+			
+		</div>
+	</main>
+	<script type="text/javascript">
+		let tempCel,tempFara;
+		
+		tempFara = parseInt(document.form.faraheir.value);
+		let transformCel = () =>{
+			tempCel = parseInt(document.form.celcius.value);
+			let Fahrenheit = tempCel * 1.8 + 32;
+			let obj = document.getElementById("contenedor").innerHTML = `<h2>La temperatura en Faraheir es: ${Fahrenheit}</h2>`;
+			console.log(Fahrenheit);
+if(Fahrenheit >= 14){
+		if(Fahrenheit==14){
+			alert("Temperatura baja");
+			document.write("<h2>Abrigate</h2>");
+			obj.innerHTML = `<h2>La temperatura en Faraheir es: ${Fahrenheit}</h2>`;
+		}else if(Fahrenheit==32){
+			alert("Temperatura baja");
+			document.write("<h2>Abrigate</h2>");
+			obj.innerHTML = `<h2>La temperatura en Faraheir es: ${Fahrenheit}</h2>`;
+		}else if(Fahrenheit>32){
+			if(Fahrenheit<=68){
+				alert("Temperatura adecuada");
+				document.write("<h2>Normal</h2>");
+				obj.innerHTML = `<h2>La temperatura en Faraheir es: ${Fahrenheit}</h2>`;
+			}else if(Fahrenheit>68){
+				if(Fahrenheit<=96){
+					alert("Temperatura Alta");
+					document.write("<h2>Muy caluroso</h2>");
+					obj.innerHTML = `<h2>La temperatura en Faraheir es: ${Fahrenheit}</h2>`;
+				}else{
+					alert("Temperatura desconocida");
+					document.write("<h2>DESCONOCIDO</h2>");
+					obj.innerHTML = `<h2>La temperatura en Faraheir es: ${Fahrenheit}</h2>`;
+				}
+			}
+		}
+	}
+}			
+	tempFara = parseInt(document.form.faraheir.value);
+		let transformFar = () =>{
+			tempFara = parseInt(document.form.faraheir.value);
+			let celcius = (tempFara - 32) / 1.8;
+			let obj = document.getElementById("contenedor2").innerHTML = `<h2>La temperatura en celcius es: ${celcius}</h2>`;
+			console.log(celcius);
+if(celcius >= -10){
+		if(celcius==-10){
+			alert("Temperatura baja");
+			document.write("<h2>Abrigate</h2>");
+			obj.innerHTML = `<h2>La temperatura en celcius es: ${celcius}</h2>`;
+		}else if(celcius==0){
+			alert("Temperatura baja");
+			document.write("<h2>Abrigate</h2>");
+			innerHTML = `<h2>La temperatura en celcius es: ${celcius}</h2>`;
+		}else if(celcius>0){
+			if(celcius<=20){
+				alert("Temperatura adecuada");
+				document.write("<h2>Normal</h2>");
+				innerHTML = `<h2>La temperatura en celcius es: ${celcius}</h2>`;
+			}else if(celcius>20){
+				if(celcius<=36){
+					alert("Temperatura Alta");
+					document.write("<h2>Muy caluroso</h2>");
+					innerHTML = `<h2>La temperatura en celcius es: ${celcius}</h2>`;
+				}else{
+					alert("Temperatura desconocida");
+					document.write("<h2>DESCONOCIDO</h2>");
+					innerHTML = `<h2>La temperatura en celcius es: ${celcius}</h2>`;
+				}
+			}
+		}
+	}
+}	
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 23</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="dist/hamburgers.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<!--
+	Crear un boton que aparezca una vez que el scroll este a bajo a una cierta altura y que cuando lo movemos arriba este nos lleve a arriba
+-->
+<body>
+	<header class="header">
+		<h1>Ejercicios de DOM</h1>
+	</header>
+
+<article class="btn">
+        <button class="panel-btn hamburger hamburger--vortex" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    <button class="btn-scroll">
+        <span class="material-symbols-outlined">
+            arrow_upward
+            </span>
+    </button>
+</article>
+<aside class="panel">
+    <nav class="menu">
+        <a href="#seccion1">Seccion 1</a>
+        <a href="#seccion2">Seccion 2</a>
+        <a href="#seccion3">Seccion 3</a>
+        <a href="#seccion4">Seccion 4</a>
+        <a href="#seccion5">Seccion 5</a>
+    </nav>
+</aside>
+<main>
+	<section id="seccion1" class="section">
+        <h2>Seccion 1</h2>
+    </section>
+    <section id="seccion2" class="section">
+        <h2>Seccion 2</h2>
+    </section>
+    <section id="seccion3" class="section">
+    	<h2>Seccion 3</h2>
+    </section>
+    <section id="seccion4" class="section">
+        <h2>Scroll Event</h2>
+    </section>
+    <section id="seccion5" class="section">
+        <h2>Seccion 5</h2>
+    </section>
+</main>
+
+<script src="app/app.js" type="module"></script>
+
+</body>
+</html>

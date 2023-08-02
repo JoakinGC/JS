@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+<!--
+18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") 
+ devuelva Vocales: 4, Consonantes: 5.
+
+19) Programa una función que valide que un texto sea un nombre válido, pe.
+ miFuncion("Jonathan MirCha") devolverá verdadero.
+
+20) Programa una función que valide que un texto sea un
+ email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.-->
+<body>
+    
+<script>
+/*18) Programa una función que dada una cadena de texto cuente el número de
+ vocales y consonantes, pe. miFuncion("Hola Mundo") 
+ devuelva Vocales: 4, Consonantes: 5.*/
+
+// Mi solución:
+
+const contador = (cadena="") =>{
+    if(typeof cadena!=="string") return console.warn("Tiene que ser un tring");
+
+    if(cadena === "") return console.error("No se escribio nada");
+
+    let  expRegVocales = /[aeiou]/gi,expRegConsonantes = /[^aeiou]/gi,
+    consonantes,vocales;
+   
+    consonates = cadena.match(expRegConsonantes);
+    vocales = cadena.match(expRegVocales);
+    
+    return console.info(`Vocales: ${vocales.length}. Consonantes: ${consonates.length}`);
+}
+//contador()
+//contador([])
+//contador({})
+//contador("Hola Mundo")
+
+//Fin
+
+//Solucion de Jon Mircha:
+
+const contarLetra = (cadena="") =>{
+
+    if(!cadena) return console.warn("No ingresaste una cadena de texto");
+
+    if(typeof cadena!=="string") return console.error(`El valor ${cadena} ingreasado, NO es una cadena de texto`);
+
+    let vocales=0,
+    consonantes=0;
+
+    cadena = cadena.toLowerCase();
+    
+    for(letra of cadena){
+        if(/[aeiouáéíóú]/.test(letra)) vocales++;
+        if(/[bcdfghjklmnñpqrstvwxyz]/.test(letra))  consonantes++;
+    }
+
+    return console.info({
+        cadena,
+        vocales,
+        consonantes
+    })
+}
+
+//contarLetra()
+//contarLetra(3)
+//contarLetra("Hola Mundo")
+//contarLetra(`ñoño`)
+//contarLetra("Lorem ixo.a,delsalde")
+
+/*19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.*/
+
+// Mi solución:
+
+let expRegNumeros = /[1-9]/g;
+let expRegMayusculas = /[A-Z]/g;
+let expRegEspacios = /\s/g;
+
+const validacionDeNombre = (nombre=undefined,) => (nombre===undefined) ? 
+console.error("No esta definida"):(typeof nombre !== "string")?
+console.warn("Tiene que ser un string"):(nombre.length <= 10) ?
+console.warn("No puede ser menos de 10 caracteres") : (nombre.length>=40) ?
+console.warn("No puede ser mas de 40 caracteres"): (expRegNumeros.test(nombre)===true) ? 
+console.warn("No puede tener numeros el nombre"):(nombre.match(expRegMayusculas).length>=5) ? 
+console.warn("Tiene que empezar el nombre en mayuscula y no tener mas de 5 mayusculas"):
+(expRegEspacios.test(nombre)===false)?
+console.warn("Tiene que haber un espacio entre el nombre y apellido"):
+console.info(true);
+
+
+//validacionDeNombre()
+//validacionDeNombre({})
+//validacionDeNombre("joa")
+//validacionDeNombre("dsadsadasdasdadsadsadsadsadsadsadsadsadasddsa")
+//validacionDeNombre("158466652255")
+//validacionDeNombre("joaquin contreras")
+//validacionDeNombre("Joaquin CONTRERAS")
+//validacionDeNombre("JoaquinContreras")
+//validacionDeNombre("Joaquin Contreras")
+
+
+//Fin
+
+//Solucion de Jon Mircha:
+
+const validarNombre = (nombre="") =>{
+    if(!nombre) return console.warn("No ingresaste una cadena de texto");
+
+    if(typeof nombre!=="string") return console.error(`El valor ${nombre} ingreasado, NO es una cadena de texto`);
+
+    let expReg = /^[a-zA-ZÑñÁáÉéÍiÓóÚúÜ\s]+$/g.test(nombre);    
+
+
+    return (expReg) ? 
+    console.info(`"${nombre}", es un nombre valido`):
+    console.info(`"${nombre}", no es nombre valido`);
+}
+
+//validarNombre()
+//validarNombre(2)
+//validarNombre("Jonathan")
+//validarNombre("Jonathan Mircha")
+//validarNombre("Jonathan Mircha,22")
+
+/*20) Programa una función que valide que un texto sea un
+email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
+
+// Mi solución:
+
+const validacionDeEmail = (email=undefined) =>{
+
+    let expRegEmail = /@gmail.com/;
+    if(email===undefined) return console.error("No esta definido");
+
+    if(typeof email !== "string") return console.warn("Tiene que ser un string");
+
+    if(expRegEspacios.test(email)===true) return console.warn("No tiene que haber espacios");
+
+    if(expRegEmail.test(email)===false) return console.error("Error de sintaxis email");
+
+    email=email.toLowerCase();
+    return console.info("Este es tu email: ",email);
+}
+//validacionDeEmail()
+//validacionDeEmail({})
+//validacionDeEmail("Joa")
+//validacionDeEmail("joakingcontrer as@gmail.com")
+//validacionDeEmail("joakingcontreras@gmail.com")
+
+//Fin
+
+//Solucion de Jon Mircha:
+
+
+const validarEmail = (email="") =>{
+    if(!email) return console.warn("No ingresaste una cadena de texto");
+
+    if(typeof email!=="string") return console.error(`El valor ${email} ingreasado, NO es una cadena de texto`);
+
+    let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/ig.test(email);    
+
+//[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i
+// Expresion regular que valida los email y lso cuerpos del mismo
+
+
+    return (expReg) ? 
+    console.info(`"${email}", es un email valido`):
+    console.info(`"${email}", no es email valido`);
+}
+
+//validarEmail()
+//validarEmail(34)
+//validarEmail("jon,mir,cha@gmail")
+//validarEmail("jonmircha@gmail.com")
+
+
+//Union del 19 y 20
+
+
+const validarPatron = (cadena="",patron=undefined) =>{
+    if(!cadena) return console.warn("No ingresaste una cadena de texto");
+
+    if(typeof cadena!=="string") return console.error(`El valor ${cadena} ingreasado, NO es una cadena de texto`);
+
+    if(patron===undefined) return console.warn("El patron no esta definido");
+
+    if(!(patron instanceof RegExp)) return console.error(`El valor ${patron} ingreasado, NO es una expresión regular`);
+
+    let expReg = patron.test(cadena);    
+
+    return (expReg) ? 
+    console.info(`"${cadena}", es un cadena valido`):
+    console.info(`"${cadena}", no es cadena valido`);
+}
+
+//validarPatron();
+//validarPatron({});
+//validarPatron("Hola mundo");
+//validarPatron("Hola mundo","Hola");
+//validarPatron("Jonathan Mircha",/^[a-zA-ZÑñÁáÉéÍiÓóÚúÜ\s]+$/g );
+//validarPatron("Jonathan Mircha,19",/^[a-zA-ZÑñÁáÉéÍiÓóÚúÜ\s]+$/g );
+//validarPatron("jonathanmicrha@gmail.com",new RegExp(/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/,"ig"));
+</script>
+</body>
+</html>

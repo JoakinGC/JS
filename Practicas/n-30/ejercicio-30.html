@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+	<meta charset="UTF-8">
+	<title> Ejercicio 30</title>
+
+</title>
+</head>
+<body>
+<script>
+//Enero 31 febrero Marzo 31 Abril 30 Mayo 31 Junio 30 Julio 31 Agosto 31 Septiembre 30 Octubre 31 Noviembre 30 Diciembre 31
+	let mes;
+	//function boton(){
+		
+	//	 document.body.style.background.color.black;
+	//	}
+	
+	mes=prompt("Nùmero del mes:","0");
+	mes=parseInt(mes);
+	if (12 == mes || 12 > mes) {
+		mes = (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes ==10 || mes == 12) ? "31 dias" : "30 dias"
+		document.write(`<h1> El mes que elejiste tiene ${mes}<h1> `);
+	}else{
+		alert("No escribiste nada");
+		};
+
+	
+</script>
+<style type="text/css">
+	body{
+		background-color: black;
+		font-size:  20px;
+		text-align: center;
+	}h1{color: red;text-align: center;font-size: 20px;border-style: solid; border-color: grey;}
+
+</style>
+
+</form>
+</body>
+</html>

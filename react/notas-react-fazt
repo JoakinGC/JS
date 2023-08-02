@@ -1,0 +1,126 @@
+Notas:
+
+
+	Antes de empezar se debe tener conocimientos básicos de:
+
+		- CSS
+		- HTML
+		- JS
+		- Node
+		- ES6,ES7.
+
+
+	React objective: Creation pages from fazt.
+
+	Ventajas de React:
+
+
+		- Mejor fluidez
+		- Mejorar de experiencia de usuario
+		- Más facil de usar react
+		- Uso de informacion de una empresa
+
+	Other Ventagas:
+
+		- Declarative Vlews for each state
+		- Virtual DOM
+		- Components
+		- Can render on Server and Client.
+
+
+Components:
+
+	Se divide en diferentes partes nuestra pagina.
+
+
+	React renderiza la parte del servidor y del lado del cliente. Muestra parte del servidor sin afectar el CEO de la página.
+
+
+	Los componentes son API usables, código que se puede reusar. Nos permite crear nuestras propias etiquetas(HTML + CSS + JS = Component). 
+
+
+	Una API application programming interface, es un conjucto de definiciones y protocolos que se utiliza para desarrollar e integrar el software de las aplicaciones
+
+
+Tecnologias Relacionadas:
+
+	React si bien te ayuda para realizar la interfaz pero no tiene esos datos, los datos vienen de un servidor externo y por eso se usa tecnologias aparte a react ya que este solo sirve para interfacez visuales. No se encarga de obtener datos, almacenarlos, ni se definir la estructura de los vimos.
+
+	Related Tools:
+
+		- React Native:
+
+			Para realizar una aplicacion movil
+
+		- React Windows:
+
+			Para realizar aplicaciones para windows.
+
+		- Next.js:
+
+			Mejora la renderizar de manera mas sencilla.
+
+		- GraphQL:
+
+			Obtener datos de servidores remotos. Para utilizarlos en tú interfaz.
+
+		- Redux:
+
+			Una manera para poder administrar los datos de tú apliación
+
+		- Flux:
+
+			Ya no tan usado
+
+		- Apollo:
+
+			Es un framework para poder usar en cualquier servidor back-End.
+
+
+
+
+Revisar primer video de react para ver como se instala un proyecto de react en un archivo
+
+Para iniciar react como un servidor local se usa:
+
+	npm start
+
+	y este inicia
+
+
+Para seguir mejorando a un mas se puede estudiar las progressive web, es una manera que adaptamos nuestras aplicaciones web para entornos de los dispositivos moviles.
+
+animation: App-logo-spin infinite 20s linear;s
+
+
+
+React no puede renderizar dos etiquetas a la vez <img></img> <nav></nav> por eso se usa <div></div> para renderizar dentro de una etiqueta que es div.
+
+
+Para no confundir las clases de css normales con las clases de js en react las clases de css ya no es con el atributo class sino con el className ese es la forma nueva forma para poder hacerlo.
+
+
+Las etiquetas de html que nosotros colocamos en nuestro código de js no es de html si no que se llaman JSX. 
+
+
+Las llaves permiten colocar dentro de las JSX las variables de JS:
+
+	const saludo = 'saludo a JSX';
+
+	<h2> Soy un componente de {saludo};
+
+Sin usar las comillas que se usan en JS normal ` `.
+
+Los componentes empiezan con mayuscula y los hoods comienzan con "use" seguido de los demas
+
+
+Desfructuracion o Desfructurin:
+
+
+	Como su nombre indica es una propiedad o caracteristica que tiene los arrays que viene por defecto en JS, que le da un valor a una variable definida en un array:
+
+		[a,b] = [1,2];
+
+	Lo que hace aca es definir la variables a y b que estan dentro del array.
+
+	

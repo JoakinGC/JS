@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercio 58</title>
+	<style type="text/css">
+		table{
+			font-family: sans-serif;
+			border: 2px solid grey;
+			border-collapse: collapse;
+		}
+		tr,th{
+			border: 2px solid grey;
+		}
+	</style>
+</head>
+<!--for(i=0;i <= numFil;i++){
+			x = x + "<tl>";
+			console.log("valor de i=",i);
+			for(j=0;j<=numCol;j++){
+				x = x + `<th>Diferente ${j}</th>`;
+				console.log("valor de j=",j);
+			}
+			x = x + `</tl>`;
+		}
+		x = x + `</table>`;
+		let obj = document.getElementById("contenedor").innertHTML = x;
+	
+,numCol,numFil;
+		numCol = parseInt(window.prompt("Número de Columnas:","?"));
+		numFil = parseInt(window.prompt("Número de filas","?"));
+		console.log(`Valor de número de columans:${numCol} y su tipo de dato es: `,typeof numCol);
+		console.log(`Valor de nùmero de filas: ${numFil} y su tipo de dato es:`,typeof numFil);
+
+
+		-->
+
+
+<body>
+	<div id="contenedor">
+		<p id="central">
+	</div>
+	<script type="text/javascript">
+		let x,numFil,numCol;
+
+		numFil=parseInt(window.prompt("Filas"));
+		numCol=parseInt(window.prompt("Columnas:"));
+		
+		x = "<table>";
+		for(i=0;i <= numFil;i++){
+			x = x + "<tr>";
+			console.log("valor de i=",i);
+			for(j=0;j<=numCol;j++){
+
+				x = x + `<th>Diferente ${j}</th>`;
+				console.log("valor de j=",j);
+			}
+			x = x + `</tr>`;
+		}
+		x = x + `</table>`;
+		
+		document.getElementById("central").innerHTML = x;
+
+		
+
+	</script>
+
+	
+</body>
+</html>

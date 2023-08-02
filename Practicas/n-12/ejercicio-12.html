@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head>
+    <meta charset="utf-8"></head> 
+    <title>Ejercicio 12</title>
+<body> 
+<p>innerHtml controla que puede incluirse en un elemento.</p> 
+<div id ="salida"></div> 
+<script> 
+ let dato, num; 
+ dato = window.prompt("Introduce un número ?", "0"); 
+ num = parseInt(dato); 
+ let resultado = num *2; 
+ document.getElementById("salida").innerHTML = (`El doble es ${resultado} `); 
+</script> 
+</body> 
+</html>
+<!-- El innerHTML consigue que el resultado o lo que hagamos que sea igual vaya a un determinado espacio o caja que nosotros queramos porque con el getElementById("salida") llamamos a la caja div que tiene el nombre salida por lo que lo colocara en donde nosotros que queramos-->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 22</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link href="dist/hamburgers.css" rel="stylesheet">
+</head>
+<!--
+    Realizar un temporizador con DOM que muestre el temporizador pero el tiempo lo muestre en reverso, una cuenta regresiva que pasado el tiempo devuelva un alert o cualquier otro tipo de evento como imagen de felicidades o audio, etc.
+-->
+<body>
+
+<header class="header">
+    <h1 class="text-40">Ejercicios DOM</h1>
+</header>
+
+<article>
+        <button class="panel-btn hamburger hamburger--vortex" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+</article>
+<aside class="panel is-active">
+    <nav class="menu">
+        <a href="#seccion1">Seccion 1</a>
+        <a href="#seccion2">Seccion 2</a>
+        <a href="#seccion3">Temporizador</a>
+        <a href="#seccion4">Seccion 4</a>
+        <a href="#seccion5">Seccion 5</a>
+    </nav>
+</aside>
+<main>
+    <section id="seccion1" class="section">
+        <h2>Seccion 1</h2>
+    </section>
+    <section id="secion2" class="section">
+        <h2>Seccion 2</h2>
+    </section>
+    <section id="secion3" class="section">
+        <h2>Temporizador de Reloj</h2>
+        <article class="reloj"></article>
+        <div class="botones-tem">
+            <button class="temporizador tempo">Tiempo</button>
+            <button class="detener-tem tempo">Parar</button>
+            <button class="seguir-tem tempo">Continuar</button>
+            <audio src="sources/audio/alarma-efecto.mp3" id="audio-tem"></audio>
+            <img id="win">
+        </div>
+    </section>
+    <section id="seccion4" class="section">
+        <h2>Seccion 4</h2>
+    </section>
+    <section id="seccion5" class="section">
+        <h2>Seccion 5</h2>
+    </section>
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

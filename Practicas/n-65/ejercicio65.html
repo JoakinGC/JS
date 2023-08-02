@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 65</title>
+	<style type="text/css">
+		h1,h5,h2{
+			position: relative;
+			text-align: center;
+			color: lightgrey;
+
+		}
+		body{
+			text-align: center;
+			background-color: black;
+		}
+		.form{
+			color: red;
+		}
+	</style>
+</head>
+<!--
+	Queremos programar un juego de dados en un página web.
+
+	El usuario empieza con 50€ para poder apostar.
+
+	El usuario decide a que número apuesta del 1 al 6, y también que cantidad de euros quiere apostar.
+
+	Se “lanza” un dado (asignación al azar de un número del a 1 al 6)
+	
+	Si el usuario acierta el número, gana el doble de lo que ha postado. Si no acierta, pierde todo lo apostado.
+
+	El juego acaba cuand el usuario llega a 0 euros o al llegar a 200 euros-->
+<body>
+	<head>
+		<h1 name="titulo">Apuesta Con nosotros</h1>
+		<h5 name="subtitulo">PRUEBA TU SUERT CON NOSOTROS</h5>
+	</head>
+	<div id="contenedor">
+		<h2>Tú dinero es 50€</h2>
+	</div>
+	<main>
+		<form name="form" class="form">
+			<label>Prueba tú suerte</label>
+			<input type="number" name="apuesta" min="0" max="200">
+			<input type="number" min="1" max="6" name="numApu">
+			<div id="contenedor2">
+				<input type="button" name="dado" value="Lanzar Dado" onclick="apostar()">
+			</div>
+			<input type="reset" value="reset">
+		</form>
+	</main>
+
+<script type="text/javascript">
+
+let dinero = 50;
+let veces = 0;
+apostar = () =>{
+	let apues,numAp,numAle,apostar,obj1,obj2,veri;
+ 
+	
+	apues = parseInt(document.form.apuesta.value);
+	numAp = parseInt(document.form.numApu.value);
+	numAle = Math.floor(Math.random()*6);
+	veri = apues;
+	veces++;
+	if(veces==1){
+		if(apues==50){
+			apues = 50;
+			console.log(`Tú dinero es: ${dinero}, número de apuesta es: ${numAp}, número aleatorio es: ${numAle},número de apuesta: ${apues}`);
+		}else{
+			if(apues>50){
+				
+				apues=50;
+				console.log(`Tú dinero es: ${dinero}, número de apuesta es: ${numAp}, número aleatorio es: ${numAle},número de apuesta: ${apues}`);
+			}if(apues<50){
+				apues = apues;
+				console.log(`Tú dinero es: ${dinero}, número de apuesta es: ${numAp}, número aleatorio es: ${numAle},número de apuesta: ${apues}`);
+			}if(apues<0){
+				apues = 0;
+				console.log(`Tú dinero es: ${dinero}, número de apuesta es: ${numAp}, número aleatorio es: ${numAle},número de apuesta: ${apues}`);
+				veces--;
+			}if(isNaN(veri)){
+				apues = 0;
+				console.log(`Tú dinero es: ${dinero}, número de apuesta es: ${numAp}, número aleatorio es: ${numAle},número de apuesta: ${apues}`);
+				veces--;
+			}
+		}
+	}
+if(apues > 200){
+	apues = dinero;
+}
+
+
+	console.log(`Tú dinero es: ${dinero}, número de apuesta es: ${numAp}, número aleatorio es: ${numAle},número de apuesta: ${apues}`);
+
+	if(dinero==0){
+		alert("Has perdido");
+			
+		obj=document.getElementById("contenedor").innerHTML = `<h2>Tú dinero es de ${dinero}`;
+		obj2=document.getElementById("contenedor2").innerHTML = `<h2>Tú perdiste</h2>`;
+				console.log("Tú dinero es:",dinero)
+	}else{
+			if(numAp==numAle){
+				alert("Has ganado");
+				dinero = (apues * 2) + dinero;
+				obj=document.getElementById("contenedor").innerHTML = `<h2>Tú dinero es de ${dinero}`;
+				console.log(dinero,apues);
+			}else{
+				if(dinero==0){
+					alert("Has perdido");
+			
+					obj=document.getElementById("contenedor").innerHTML = `<h2>Tú dinero es de ${dinero}`;
+					obj2=document.getElementById("contenedor2").innerHTML = `<h2>Tú perdiste</h2>`;
+					console.log("Tú dinero es:",dinero);
+				}else{
+					alert("Has perdido");
+					dinero = dinero - apues;
+					obj=document.getElementById("contenedor").innerHTML = `<h2>Tú dinero es de ${dinero}`;
+					console.log("Tú dinero es",dinero);
+			}
+		}
+	}
+}
+
+</script>
+	
+</body>
+</html>

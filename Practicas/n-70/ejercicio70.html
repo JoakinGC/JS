@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 70</title>
+	
+</head>
+<body>
+	<header>
+		<h1>Calculadora</h1>
+	</header>
+	<main>
+		<form name="form">
+			<label>Coloca los números</label>
+			<input type="number" name="num1">
+			<input type="number" name="num2">
+			<input type="button" value="sumar" onclick="sumar(nume1,nume2)">
+			<input type="button" value="Multiplicar" onclick="multiplicar(nume1,nume2)">
+			<input type="button" value="dividir" onclick="dividir(nume1,nume2)">
+			<input type="button" value="restar" onclick="restar(nume1,nume2)">
+			<input type="reset" value="reset">
+			
+		</form>
+		<div id="contenedor">
+				
+			</div>
+	</main>
+	<script type="text/javascript">
+		let nume1 = parseInt(document.form.num1.value);
+		let nume2 = parseInt(document.form.num2.value);
+		let sumar,multiplicar,restar,dividir,obj;
+		obj = document.getElementById("contenedor");
+		sumar = (a,b) =>{
+			let result = a + b;
+			obj.innerHTML = `<h2>El resultado es: ${result}</h2>`;
+			nume1 = parseInt(document.form.num1.value);
+			nume2 = parseInt(document.form.num2.value);
+		}
+		multiplicar = (a,b) =>{
+			let result = a * b;
+			console.log(result);
+			obj.innerHTML = `<h2>El resultado es: ${result}</h2>`;
+			nume1 = parseInt(document.form.num1.value);
+			nume2 = parseInt(document.form.num2.value);
+		}
+		restar = (a,b) =>{
+			let result = a - b;
+			obj.innerHTML = `<h2>El resultado es: ${result}</h2>`;
+			nume1 = parseInt(document.form.num1.value);
+			nume2 = parseInt(document.form.num2.value);
+		}
+		dividir = (a,b) =>{
+			let result = a / b;
+			console.log(result);
+			obj.innerHTML = `<h2>El resultado es: ${result}</h2>`;
+			nume1 = parseInt(document.form.num1.value);
+			nume2 = parseInt(document.form.num2.value);
+		}
+		
+	</script>
+	</script>
+
+</body>
+</html>

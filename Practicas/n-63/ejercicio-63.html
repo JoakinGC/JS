@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 63</title>
+	<script type="text/javascript">
+		let nota1,nota2,nota3,media,result;
+		nota1 = parseInt(window.prompt("Nota 1:","0"));
+		nota2 = parseInt(window.prompt("Nota 2:","o"));
+		nota3 = parseInt(window.prompt("Nota 3:","o"));
+
+		media = (nota1 + nota2 + nota3) / 3;
+console.log("Valor de media:",media);
+		if(media > 8 || media == 8){
+			result = "Excelente";
+		}if(media <= 6){
+			result = "Desaprobado";
+		}else{
+			if(media == 7){
+				result="Aprobado";
+			}else
+				result = "Número no entero";
+		}
+
+		document.write(`La nota final es ${media} y eso es ${result}`);
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

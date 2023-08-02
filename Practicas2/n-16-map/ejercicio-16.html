@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 16</title>
+</head>
+<!--
+	Ejercicio para Mejorar aspectos faltantes:
+
+    - Map(complete)
+    - Filter(complete).
+    - Array(complete)
+    - Objectos
+    - POO combinado con Arrays
+    - Expresiones Regulares(Faltaria estudiar mas).
+-->
+<body>
+<script type="text/javascript">
+
+
+
+/*Crea una funcion que calcule el tipo de impuesto 21% productos generales y 10% hoteles y restaurantes, 4% alimentos basicos y medicina, 0% cursos de educación.*/
+
+
+const calculoIva = (arr=undefined) =>{
+	if(arr===undefined) return console.warn("No esta definido");
+
+	if(!(arr instanceof Array)) return console.error(`El "${arr}" no es un array`);
+
+	if(arr.length===0) return console.error("El array tiene que tener elementos");
+
+	if(typeof arr[0] !== "string") return console.error(`El ${arr[0]} tiene que ser un string`);
+
+
+	if(typeof arr[1] !== "number") return console.error(`El ${arr[1]} tiene que ser númerico`);
+
+	if(arr.length>2) return console.error("No puede tener más de 2 elementos el array");
+
+	if(!(/^([PG|H|R|AB|M|C]$)/.test(arr[0]))) return console.error(`Los palabras claves aceptadas son:\nProductosGenerales: "PG",\nHoteles: "H",\nRestaurantes: "R",\nAlimentosBasicos: "AB",\nMedicina: "M",\nCursos: "C"`);
+
+	let productoConIva,
+	arr2 = arr.slice(1);
+
+	if((/PG/.test(arr[0]))===true){ 
+		//console.log("PG");
+		productoConIva = arr2.map((ele)=>{
+			 	return ele + (ele * 21 / 100);
+			 });
+			}
+		
+
+	if((/H|R/.test(arr[0]))===true) {
+		//console.log("H or R");
+		productoConIva = arr2.map((ele)=>{
+			 	return ele + (ele * 10 / 100);
+			 });}
+
+	if((/AB|M/.test(arr[0]))===true) {
+		//console.log("AB or M");
+			productoConIva = arr2.map((ele)=>{	
+			 	return ele + (ele * 4 / 100);
+			 });
+		}
+
+	if((/(C)/.test(arr[0]))===true){
+		//console.log("C or A");
+		productoConIva = arr2.map((ele)=>{
+			 	return ele;
+			 });
+		}
+		
+
+	return console.info(`El valor del producto es: ${arr[1]},\nEl valor del producto con IVA: ${productoConIva}`);
+}
+
+//calculoIva();
+//calculoIva("");
+//calculoIva([]);
+//calculoIva([undefined]);
+//calculoIva([2]);
+//calculoIva(["",{}]);
+//calculoIva(["",2,2]);
+//calculoIva(["",2]);
+//calculoIva(["ascs",2]);
+//calculoIva(["Haaa",2]);
+//calculoIva(["PG",100]);
+//calculoIva(["H",100]);
+//calculoIva(["R",121]);
+//calculoIva(["AB",200]);
+//calculoIva(["M",200]);
+calculoIva(["CaasasC11",100]);
+calculoIva(["C",100]);
+
+
+/*const valores = [100, 200, 500, 2500];
+    const impuesto = 21;
+    const valores_con_impuesto = valores.map((val)=> {
+        return val + (val * impuesto / 100);
+    });
+    console.log(valores_con_impuesto);*/
+</script>
+
+</body>
+</html>

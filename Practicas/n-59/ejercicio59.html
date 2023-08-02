@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<style>
+	
+</style>
+<script>
+let fila,obj,fila1,columna2,obj2;
+let columna = parseInt(prompt("Introduce el tamaño: ", "0"))
+columna2 = columna;
+for (fila = 1; fila <= columna; fila++)
+{
+
+	for (espacios = columna - fila; espacios > 0; espacios--){
+		document.write("&nbsp&nbsp");
+	}
+	for (conta = 1; conta < (2 * fila); conta++) 
+		document.write("*");
+		document.writeln("</br>");
+
+	console.log(`Valor de columna ${columna},fila ${fila},conta ${conta}`);
+
+}
+let conta2 = conta;
+for(fila = fila;fila <= 0;fila--) {
+	for (obj = conta2; obj < 0; obj=obj-2)
+		document.write("*");
+		document.writeln("<br>");
+
+	for (obj2 = fila; obj2 < 0;obj2=obj2-1)
+		document.write("&nbsp&nbsp");
+	console.log("funciono");
+}	
+
+
+
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+	</script>
+
+</body>
+</html>
+<!---->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 50</title>
+	<script type="text/javascript">
+		let medio = () =>{
+			let nota1 = parseInt(document.form.nota1.value);
+			let nota2 = parseInt(document.form.nota2.value);
+			let medio1 = (nota1 + nota2) / 2;
+			let obj = document.getElementById("contenedor3").innerHTML = `El promedio es ${medio1}`;
+		}
+		let porcentaje1 = () =>{
+			let valor1 = parseInt(document.form.nota1.value);
+			let porce = (valor1 * 100) / 10;
+			let obj = document.getElementById("contenedor1").innerHTML = `<label>Porcentaje:</label><input type="text" value="${porce}%">`;
+		}
+		let porcentaje2 = () =>{
+			let valor2 = parseInt(document.form.nota2.value);
+			let porce = (valor2 * 100) / 10;
+			let obj = document.getElementById("contenedor2").innerHTML = `<label>Porcentaje:</label><input type="text" value="${porce}%">`;
+		}
+	</script>
+</head>
+<body>
+	<head>
+		<h1>Calculo de notas.</h1>
+	</head>
+	<main>
+		<form name="form">
+			<label>Nota:</label>
+			<input type="text" name="nota1" onchange="porcentaje1()">
+			
+			<div id="contenedor1">
+				<label>Porcentaje:</label>
+			</div>
+			<br>
+			<label>Nota:</label>
+			<input type="text" name="nota2" onchange="porcentaje2()">
+			<label>Porcentaje:</label>
+			<div id="contenedor2">
+				<label>Porcentaje:</label>
+			</div>
+			<input type="button" value="calcular" onclick="medio()">
+			<p id="contenedor3"></p>
+		</form>
+	</main>
+	</script>
+</body>
+</html>

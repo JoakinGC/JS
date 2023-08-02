@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 11</title>
+</head>
+<!--
+
+21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+
+23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+-->
+<body>
+
+
+<script type="text/javascript">
+/*21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].*/
+
+//Mi solución:
+
+const pasarArray = (numerosBase=undefined) =>{
+	if(numerosBase===undefined) return console.warn("No esta definido");
+
+	if(!(numerosBase instanceof Array)) return console.warn("No es un array");
+
+	let arrayElevadosADos;
+	for(i=0;i<=numerosBase.length;i++){
+		
+		if(typeof numerosBase[i] === "number" && Math.sign(numerosBase[i])===1 ) {
+				arrayElevadosADos =  numerosBase.map(element =>{ arrayElevadosADos = Math.pow(Math.round(element),2); return arrayElevadosADos;})
+				break;
+			}
+
+		console.error(`Los elementos dentro del array ${i} tiene que ser números positivos enteros.`);
+		break;
+	}
+	return console.info(`Los números ${numerosBase} elevado al cuadrado son ${arrayElevadosADos}`);
+}
+
+//pasarArray()
+//pasarArray("")
+//pasarArray(["1"])
+//pasarArray([-1])
+//pasarArray([3,2.5,8,9,10]);
+
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const devolverCuadrados = (arr=undefined) =>{
+
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	for(num of arr){
+		if(typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un número.`);
+	}
+
+	const newArr = arr.map(el => el * el);
+
+
+	return  console.info(`Arreglo original: ${arr}, Arreglo elevado al cuadrado: ${newArr}`);
+}
+
+//devolverCuadrados()
+//devolverCuadrados(true)
+//devolverCuadrados({})
+//devolverCuadrados([])
+//devolverCuadrados(["1",2,4,{}])
+//devolverCuadrados([1,4,{}])
+//devolverCuadrados([1,4,8])
+
+/*22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].*/
+
+const numMasAltoyBajo = (numeros=undefined) => {
+	if(numeros===undefined) return console.warn("No esta definido");
+
+	if(!(numeros instanceof Array)) return console.error("No es un array");
+
+	if(numeros.length) return console.error(`El array esta vacio`)
+
+	let noSonNumeros=[],numeros1=[];
+	 for(i=0;i<=numeros.length;i++){
+		if(typeof numeros[i] === "number"){
+				numeros1.push(numeros[i]);
+				continue;
+			}else if(!(numeros[i] instanceof Number)){
+				noSonNumeros.push(numeros[i]);
+				}
+	}
+	
+	return (noSonNumeros[0]===undefined) ? console.info(`El número más alto es ${Math.max(...numeros1)} y más bajo ${Math.min(...numeros1)}`):
+		(noSonNumeros.length>=1)? console.error(`Los siguientes elementos no son de tipo númerico: ${noSonNumeros}`): console.info(`El número más alto es ${Math.max(...numeros1)} y más bajo ${Math.min(...numeros1)}`);
+}
+
+//numMasAltoyBajo()
+//numMasAltoyBajo("1")
+//numMasAltoyBajo(["c",2,{name:"name"},[2]])
+//numMasAltoyBajo([1,2,3,4,-66,77])
+
+//Fin
+
+
+
+//Solucion Jon Mircha:
+
+const arrayMinMax = (arr = undefined) =>{
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	for(num of arr){
+		if(typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un número.`);
+	}
+
+	return console.info(`Arreglo original: ${arr}\nValor máximo: ${Math.max(...arr)}\nValor mínimo: ${Math.min(...arr)}`);
+}
+
+//arrayMinMax()
+//arrayMinMax(true)
+//arrayMinMax(//[])
+//arrayMinMax(["2"])
+//arrayMinMax([1,2,3,4,-66,77]//)
+
+
+
+/*23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.*/
+
+
+//Mi solución:
+
+const numerosParesYImpar = (numeros=undefined) =>{
+	if(numeros===undefined) return console.warn("No esta definido");
+
+	if(!(numeros instanceof Array)) return console.warn("Tiene que ser un array");
+
+	if(numeros[0]===undefined) return console.warn("No tiene elementos pasado dentro del array");
+
+
+	let impares=[],pares=[],elementosNoNumericos=[];
+	for(i=0;i<=numeros.length;i++){
+		if(typeof numeros[i] === "number"){ 
+
+			if(numeros[i]%2===0){
+
+				pares.push(numeros[i]);
+
+			}else{
+
+				impares.push(numeros[i]);
+
+			}
+		}else if(typeof numeros[i]!=='number' && typeof numeros[i]!=='undefined'){
+			elementosNoNumericos.push(numeros[i]);
+		}
+	}
+	
+	//console.log(numeros.length)
+	return(elementosNoNumericos.length>=1) ? console.info(`Los siguientes elementos no son númericos: ${elementosNoNumericos}`) :(pares.length>=1&&impares.length===0) ? console.info(`Solo hay pares y son: ${pares}.`):(impares.length>=1&&pares.length===0)? console.info(`Solo hay impares y son: ${impares}.`):console.info(`Los números pares son: ${pares}. Los Impares son: ${impares}`);
+}
+
+//numerosParesYImpar()
+//numerosParesYImpar({})
+//numerosParesYImpar([])
+//numerosParesYImpar(["2"])
+//numerosParesYImpar([2,4,6])
+//numerosParesYImpar([3,7,9])
+//numerosParesYImpar([3,7,9,2,4,6])
+
+
+//Fin
+
+//Solucion Jon Mircha:
+
+const sapararImparesPares = (arr=undefined)=>{
+
+	if(arr===undefined) return console.warn("No ingresaste un arreglo de números");
+
+	if(!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+	if(arr.length===0) return console.error("El arreglo esta vacio");
+
+	for(num of arr){
+		if(typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un número.`);
+	}
+
+	return console.info({
+		pares: arr.filter(num => num % 2 ===0),
+		impares: arr.filter(num => num % 2 ===1)
+	})
+}
+
+sapararImparesPares()
+sapararImparesPares({})
+sapararImparesPares([])
+sapararImparesPares([1,2,"2"])
+sapararImparesPares([3,7,9,2,4,6])
+</script>
+</body>
+</html>

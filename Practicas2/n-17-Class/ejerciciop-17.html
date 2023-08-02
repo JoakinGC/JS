@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ejercicio 17</title>
+</head>
+<body>
+<script type="text/javascript">
+	/*Busca informacion de un impuesto real y de ahi realiza la comversion de un presupuesto con  los gastos que genera en porcentaje y con los valores originales y demas*/
+
+/* 
+
+IVA España 21% Básicamente tributarán al 21% de IVA:
+
+    - Luz
+    - Gas
+    - Vestimenta.
+    - Coches
+    - Motocicletas 
+    - Combustible
+    - Higiene 
+    - Cosméticos
+    - Electrodomésticos
+    - Internet
+
+El tipo reducido del 10%:
+
+    - Hoteles
+    - Restaurantes
+    - Entretenimiento
+    - Ocio
+    - Deportes
+    - Transporte público
+    - Plantas 
+    - Bienes Raizes nuevos edificios.
+    - Alimentos no esenciales
+    - Veterinaria.
+    - Accesorios para salud
+    - Equipos secundarios para salud.
+    
+
+
+sólo al 4%, y se aplica a los productos de primera necesidad:
+
+    - Alimentos básicos
+    - Agua
+    - Medicamentos de uso humano
+    - Material de lectura
+    - Pisos de protección oficial
+    - Material escolar
+
+
+Y, por último, todos los servicios y productos que están exentos de IVA.
+
+Excentos de IVA:
+
+	- Profesionales Colegiados
+	- Servicio Médico
+	- Cursos y Aprendizaje.
+
+
+Es el caso de algunos servicios prestados por profesionales colegiados, como los servicios médicos prestados por dentistas, médicos u ópticos.
+
+Pero también diferentes tipos de cursos de educación y aprendizaje. Pero no todos ellos están exentos de IVA, únicamente aquellos cursos regulados con un programa de estudios general y acreditado.
+
+
+
+la ubicacion es importante.
+
+Fuera de pais: No valido
+
+Islas canarias: Se manejan con 7% de IGIC.
+
+Dentro de España: Valido
+
+Islas Canarias:
+
+están gravadas con un 7% de IGIC.
+
+Pero, ¿qué ocurre si un profesional de Lanzarote, por ejemplo, hace negocios con un cliente ubicado en la España peninsular? Básicamente que esa operación estaría exenta de IVA.
+
+
+y Como autonomo somos intermediriadio lo que lo termina pagando el cliente.
+
+https://balcellsgroup.com/es/iva-en-espana/ 
+*/
+
+
+
+
+
+
+
+
+
+
+
+/*const calculoIva = (arr=undefined) =>{
+	if(arr===undefined) return console.warn("No esta definido");
+
+	if(!(arr instanceof Array)) return console.error(`El "${arr}" no es un array`);
+
+	if(arr.length===0) return console.error("El array tiene que tener elementos");
+
+	if(typeof arr[0] !== "string") return console.error(`El ${arr[0]} tiene que ser un string`);
+
+
+	if(typeof arr[1] !== "number") return console.error(`El ${arr[1]} tiene que ser númerico`);
+
+	if(arr.length>2) return console.error("No puede tener más de 2 elementos el array");
+
+	if(!(/^([PG|H|R|AB|M|C]$)/.test(arr[0]))) return console.error(`Los palabras claves aceptadas son:\nProductosGenerales: "PG",\nHoteles: "H",\nRestaurantes: "R",\nAlimentosBasicos: "AB",\nMedicina: "M",\nCursos: "C"`);
+
+	let productoConIva,
+	arr2 = arr.slice(1);
+
+	if((/PG/.test(arr[0]))===true){ 
+		//console.log("PG");
+		productoConIva = arr2.map((ele)=>{
+			 	return ele + (ele * 21 / 100);
+			 });
+			}
+		
+
+	if((/H|R/.test(arr[0]))===true) {
+		//console.log("H or R");
+		productoConIva = arr2.map((ele)=>{
+			 	return ele + (ele * 10 / 100);
+			 });}
+
+	if((/AB|M/.test(arr[0]))===true) {
+		//console.log("AB or M");
+			productoConIva = arr2.map((ele)=>{	
+			 	return ele + (ele * 4 / 100);
+			 });
+		}
+
+	if((/(C)/.test(arr[0]))===true){
+		//console.log("C or A");
+		productoConIva = arr2.map((ele)=>{
+			 	return ele;
+			 });
+		}
+		
+
+	return console.info(`El valor del producto es: ${arr[1]},\nEl valor del producto con IVA: ${productoConIva}`);
+}*/
+
+
+
+/* Creación de una funcion o clase que calcule el valor de impuesto que paga el cliente teniendo en cuenta si es un servicio (hoteleria, escueslas, etc) o producto(basico,etc), y si esta en las islas canarias o españa.
+
+validaciones:
+
+Las validaciones de ID , nombre la colocaremos dentro dela clase cuerpo y valor.
+
+	- ID sea un string (C)
+	- Primeros 7 digitos numeros y los otros dos letras abecedario. (C)
+
+	- Que la ubicacion sea un string (C)
+	- Que solo acepte tres palabras claves: España, Islas Canarias, Extranjero. (C)
+
+	- Nombre sea un string. (C)
+	- Que no este vacio (C)
+	- Que no pase los 50 caracteres. (C)
+	- Que haya espacio entre ellos.(C)
+
+	- tipo de servicio o venta sea un string. (C)
+	- Si es un servicio o venta. (C)
+	- Que concida los elementos con los nombres aceptados de cada de clase.(C)
+	
+
+	- Que el valor sea numerico (C)
+	- Que el valor no sean negativos(C)
+	- Que no sobrepase los dos digitos despues de la coma(C)
+	- Que el tipo de moneda sea euros y se diga en anuncio que esta euros.(C)
+
+
+
+Parametros: Ubicacion, Servicio o Venta, Tipo de Servicio o venta.
+*/
+
+
+class cuerpoIvaEspaña{
+	constructor({id,ubicacion,nombre,monto,tipoDeServicioOVenta}){
+		this.id = id;
+		this.ubicacion = ubicacion;
+		this.nombre = nombre;
+		this.monto = monto;
+		this.tipoDeServicioOVenta = tipoDeServicioOVenta;
+	}
+
+	static anuncioMoneda(){
+		console.info(`La moneda que se usa para el monto demas cosas es "€" o el euro`);
+	}
+	static posiblesUbicaciones(){
+		console.info(`Solo se aceptan tres ubicaciones que son:España, Islas Canarias, Extranjero`);
+	}
+
+	validarArray(propiedad,valor){
+
+		if(!valor) return console.warn(`${propiedad} NO esta definido`);
+
+		if(!(valor instanceof Array)) return console.error(`"${propiedad}" NO es un ARRAY.`);
+
+		if(valor.length === 0) return console.error(`"${propiedad}" NO tiene ningun elemento`);
+
+
+		for(let ele of valor){
+			if(typeof ele !== "string") return console.error(`${ele} NO es un string`);
+		}
+
+		return true;
+	}
+
+	validarNumero(propiedad,valor){
+		if(!valor) return console.warn(`${propiedad} NO esta definido`);
+
+		if(typeof valor !== "number") return console.error(`El  "${propiedad} NO es un número.`);
+
+		if(Math.sign(valor)===-1) return console.error(`${propiedad} tiene que ser positivo`);
+
+		return true;
+	}
+
+	validarString(propiedad,valor){
+		
+		if(!valor)return console.warn(`${propiedad} "${valor}" NO esta definido`);
+
+		
+		if(typeof valor !== "string")return console.error(`${propiedad} NO es un string`);
+
+		if(valor.length===0) return console.error(`${propiedad} "${valor}" NO tiene ningun caracter.`);
+
+		return true;
+	}
+
+	validarEspacios(propiedad,valor){
+		if(!(/\s/g.test(valor))) return console.error(`${propiedad} "${valor}" debe estar seperados con espacio y tener dos palabras claves al menos.`);
+
+		return true;
+	}
+
+	validarCaracteres(propiedad,valor,longitud){
+		if(valor.length>longitud) return console.error(`${propiedad} "${valor}" excede el número de caracteres permitidos ${longitud}`);
+
+		return true;
+	}
+
+	validarID(id){
+		if(this.validarString("ID",id)){
+			if(!(/^([1-7]{7})+([a-z]{2})$/.test(id))) return console.error("ID no valido");
+		}
+	}
+
+	validarNombre(nombre){
+		if(this.validarString("Nombre",nombre)){
+			if(this.validarCaracteres("Nombre", nombre,50)){
+				this.validarEspacios("Nombre",nombre);
+			}
+		}
+	}
+
+	validarMonto(monto){
+		cuerpoIvaEspaña.anuncioMoneda();
+        if(this.validarNumero("Monto",monto)){
+        		if(!(/^[0-9]+([.]{0,1})+([0-9]){0,2}$/.test(monto))) return console.error(`El Monto NO puede tener más de dos valores despues de la coma`);
+        }
+    }
+
+    validacionUbicacion(ubicacion){
+    	if(this.validarString("Ubicación",ubicacion)){
+    		if(!(/^(España)$/i.test(ubicacion))) {
+    		 console.error(`"${ubicacion}" NO esta disponible.`);
+    		 cuerpoIvaEspaña.posiblesUbicaciones();
+    		// Más adelante usare |Islas Canarias|Extranjero;
+    		}
+    	}
+    }
+
+    validarSiEsServicioOVenta(tipoDeServicioOVenta){
+		this.validarString("Tipo de servicio o venta",tipoDeServicioOVenta);
+
+		if(!(/^(Servicio|Venta)$/i.test(tipoDeServicioOVenta))) return console.error(`Solo aceptamos dos palabras claves.`);
+
+		return true;
+	}
+}
+
+
+
+class IVA21 extends cuerpoIvaEspaña{
+	constructor({id,nombre,ubicacion,monto,tipoDeServicioOVenta,serviciosOVentas}){
+
+		super(id,nombre,ubicacion,monto,tipoDeServicioOVenta);
+		
+
+		this.ubicacion = ubicacion;
+		this.nombre = nombre;
+		this.monto = monto;
+		this.tipoDeServicioOVenta = tipoDeServicioOVenta;
+		this.serviciosOVentas = serviciosOVentas;
+		this.validarID(id);
+		this.validarNombre(nombre);
+		this.validarMonto(monto);
+		this.validacionUbicacion(ubicacion);
+		this.validarSiEsServicioOVenta(tipoDeServicioOVenta);
+		this.validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta);
+
+	}
+	static get ventasNombres(){
+		return ["Vestimenta","Coches","Motocicletas","Higiene","Cosméticos","Electrodomésticos",];
+	}
+
+	static get servicioNombres(){
+		return ["Luz","Gas","Combustible","Internet"]
+	}
+
+	static ventasAceptadas(){
+		return console.info(`Los nombres aceptados y tipos de ventas son: ${IVA21.ventasNombres.join(", ")}.`);
+	}
+
+	static serviciosAceptados(){
+		return console.info(`Los nombres aceptados y tipos de servicios son: ${IVA21.servicioNombres.join(", ")}.`);
+	}
+
+	
+	validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta){
+
+		if(/Venta/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Venta",serviciosOVentas)){
+				if(!(IVA21.ventasNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de las ventas aceptados`);
+					IVA21.ventasAceptadas();
+				}
+			}
+		}else if(/Servicio/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Servicio",serviciosOVentas)){
+				if(!(IVA21.servicioNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de los tipo de servicios aceptados`);
+					IVA21.serviciosAceptados();
+				}
+			}
+		}	
+	}
+
+	fichaTecnica(){
+		console.info(`Ficha Técnica:\nNombre:${this.nombre}\nUbicación: ${this.ubicacion}\nDe naturaleza: ${this.tipoDeServicioOVenta}\nConcretamente: ${this.serviciosOVentas}\nMonto:${this.monto}\nMonto con IVA 21%: ${this.monto + (this.monto * 21 / 100)}`);
+	}
+}
+
+//IVA21.anuncioMoneda();
+//IVA21.posiblesUbicaciones();
+
+//IVA21.ventasAceptadas();
+//IVA21.serviciosAceptados();
+
+const cuerpo = new IVA21({
+	id:"1234567ab",
+	nombre:"Mercadona 1",
+	ubicacion: "España",
+	monto: 99.00,
+	tipoDeServicioOVenta: "Servicio",
+	serviciosOVentas: "Luz"
+});
+
+cuerpo.fichaTecnica();
+
+
+//IVA 10%:
+
+
+class IVA10 extends cuerpoIvaEspaña{
+	constructor({id,nombre,ubicacion,monto,tipoDeServicioOVenta,serviciosOVentas}){
+
+		super(id,nombre,ubicacion,monto,tipoDeServicioOVenta);
+		
+
+		this.ubicacion = ubicacion;
+		this.nombre = nombre;
+		this.monto = monto;
+		this.tipoDeServicioOVenta = tipoDeServicioOVenta;
+		this.serviciosOVentas = serviciosOVentas;
+		this.validarID(id);
+		this.validarNombre(nombre);
+		this.validarMonto(monto);
+		this.validacionUbicacion(ubicacion);
+		this.validarSiEsServicioOVenta(tipoDeServicioOVenta);
+		this.validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta);
+
+	}
+	static get ventasNombres(){
+		return ["Deportes","Transporte público","Plantas","Bienes Raizes de nuevos edificios","Alimentos no esenciales","Veterinaria","Accesorios para salud","Equipos secundarios para salud"];
+	}
+
+	static get servicioNombres(){
+		return ["Hoteleria","Gastronomía","Entretenimiento","Ocio","Deportes","Transporte público"];
+	}
+
+	static ventasAceptadas(){
+		return console.info(`Los nombres aceptados y tipos de ventas son: ${IVA10.ventasNombres.join(", ")}.`);
+	}
+
+	static serviciosAceptados(){
+		return console.info(`Los nombres aceptados y tipos de servicios son: ${IVA10.servicioNombres.join(", ")}.`);
+	}
+
+	
+	validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta){
+
+		if(/Venta/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Venta",serviciosOVentas)){
+				if(!(IVA10.ventasNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de las ventas aceptados`);
+					IVA10.ventasAceptadas();
+				}
+			}
+		}else if(/Servicio/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Servicio",serviciosOVentas)){
+				if(!(IVA10.servicioNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de los tipo de servicios aceptados`);
+					IVA10.serviciosAceptados();
+				}
+			}
+		}	
+	}
+
+	fichaTecnica(){
+		console.info(`Ficha Técnica:\nNombre:${this.nombre}\nUbicación: ${this.ubicacion}\nDe naturaleza: ${this.tipoDeServicioOVenta}\nConcretamente: ${this.serviciosOVentas}\nMonto:${this.monto}\nMonto con IVA 10%: ${this.monto + (this.monto * 10 / 100)}`);
+	}
+}
+
+
+//IVA10.ventasAceptadas();
+//IVA10.serviciosAceptados();
+
+const iva10 = new IVA10({
+	id:"1234567ac",
+	nombre:"Oreo de Mercadona",
+	ubicacion: "España",
+	monto: 90.00,
+	tipoDeServicioOVenta: "Venta",
+	serviciosOVentas: "Alimentos no esenciales"
+});
+
+iva10.fichaTecnica();
+
+
+//IVA 4%:
+
+
+class IVA4 extends cuerpoIvaEspaña{
+
+	constructor({id,nombre,ubicacion,monto,tipoDeServicioOVenta,serviciosOVentas}){
+
+		super(id,nombre,ubicacion,monto,tipoDeServicioOVenta);
+		
+
+		this.ubicacion = ubicacion;
+		this.nombre = nombre;
+		this.monto = monto;
+		this.tipoDeServicioOVenta = tipoDeServicioOVenta;
+		this.serviciosOVentas = serviciosOVentas;
+		this.validarID(id);
+		this.validarNombre(nombre);
+		this.validarMonto(monto);
+		this.validacionUbicacion(ubicacion);
+		this.validarSiEsServicioOVenta(tipoDeServicioOVenta);
+		this.validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta);
+
+	}
+	static get ventasNombres(){
+		return ["Alimentos básicos","Medicamentos de uso humano","Material de lectura","Pisos de protección oficial","Material escolar"];
+	}
+
+	static get servicioNombres(){
+		return ["Agua"];
+	}
+
+	static ventasAceptadas(){
+		return console.info(`Los nombres aceptados y tipos de ventas son: ${IVA4.ventasNombres.join(", ")}.`);
+	}
+
+	static serviciosAceptados(){
+		return console.info(`Los nombres aceptados y tipos de servicios son: ${IVA4.servicioNombres.join(", ")}.`);
+	}
+
+	
+	validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta){
+
+		if(/Venta/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Venta",serviciosOVentas)){
+				if(!(IVA4.ventasNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de las ventas aceptados`);
+					IVA4.ventasAceptadas();
+				}
+			}
+		}else if(/Servicio/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Servicio",serviciosOVentas)){
+				if(!(IVA4.servicioNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de los tipo de servicios aceptados`);
+					IVA4.serviciosAceptados();
+				}
+			}
+		}	
+	}
+
+	fichaTecnica(){
+		console.info(`Ficha Técnica:\nNombre:${this.nombre}\nUbicación: ${this.ubicacion}\nDe naturaleza: ${this.tipoDeServicioOVenta}\nConcretamente: ${this.serviciosOVentas}\nMonto:${this.monto}\nMonto con IVA 4%: ${this.monto + (this.monto * 4 / 100)}`);
+	}
+}
+
+const iva4 = new IVA4({
+	id:"1234567ad",
+	nombre:"Pan de Mercadona",
+	ubicacion: "España",
+	monto: 2.00,
+	tipoDeServicioOVenta: "Venta",
+	serviciosOVentas: "Alimentos básicos"
+});
+
+iva4.fichaTecnica();
+
+//IVA4.ventasAceptadas();
+//IVA4.serviciosAceptados();
+
+
+//IVA 0%
+
+class IVA0 extends cuerpoIvaEspaña{
+
+	constructor({id,nombre,ubicacion,monto,tipoDeServicioOVenta,serviciosOVentas}){
+
+		super(id,nombre,ubicacion,monto,tipoDeServicioOVenta);
+		
+
+		this.ubicacion = ubicacion;
+		this.nombre = nombre;
+		this.monto = monto;
+		this.tipoDeServicioOVenta = tipoDeServicioOVenta;
+		this.serviciosOVentas = serviciosOVentas;
+		this.validarID(id);
+		this.validarNombre(nombre);
+		this.validarMonto(monto);
+		this.validacionUbicacion(ubicacion);
+		this.validarProfesiónOServicio(tipoDeServicioOVenta);
+		this.validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta);
+
+	}
+
+	static get profesiones(){
+		return ["Profesionales Colegiados"];
+	}
+
+	static get servicioNombres(){
+		return ["Servicio Médico","Cursos y Aprendizaje"];
+	}
+
+	static profesionesAceptadas(){
+		return console.info(`Los nombres aceptados y tipos de profesiones son: ${IVA0.profesiones.join(", ")}.`);
+	}
+
+	static serviciosNombres(){
+		return console.info(`Los nombres aceptados y tipos de servicio son: ${IVA0.servicioNombres.join(", ")}.`);
+	}
+
+	validarProfesiónOServicio(tipoDeServicioOVenta){
+		this.validarString("Tipo de Profesión o Servicio",tipoDeServicioOVenta);
+
+		if(!(/^(Servicio|Profesion)$/i.test(tipoDeServicioOVenta))) return console.error(`Solo aceptamos dos palabras claves.`);
+
+		return true;
+	}
+
+	validarServicioOVenta(serviciosOVentas,tipoDeServicioOVenta){
+
+		if(/Profesion/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Venta",serviciosOVentas)){
+				if(!(IVA0.ventasNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de las profesiones aceptados`);
+					IVA0.profesionesAceptadas();
+				}
+			}
+		}else if(/Servicio/i.test(tipoDeServicioOVenta)){
+			if(this.validarString("Tipo Servicio",serviciosOVentas)){
+				if(!(IVA0.servicioNombres.includes(serviciosOVentas))){
+					console.error(`${serviciosOVentas} NO estan dentro de los tipo de servicios aceptados`);
+					IVA0.serviciosNombres();
+				}
+			}
+		}	
+	}
+
+	fichaTecnica(){
+		console.info(`Ficha Técnica:\nNombre:${this.nombre}\nUbicación: ${this.ubicacion}\nDe naturaleza: ${this.tipoDeServicioOVenta}\nConcretamente: ${this.serviciosOVentas}\nMonto:${this.monto}\nMonto con IVA 0%: ${this.monto}`);
+	}
+}
+
+const iva0 = new IVA0({
+	id:"1234567ae",
+	nombre:"Pan de Mercadona",
+	ubicacion: "España",
+	monto: 2.00,
+	tipoDeServicioOVenta: "Servicio",
+	serviciosOVentas: "Cursos y Aprendizaje"
+});
+
+iva0.fichaTecnica();
+
+//IVA0.profesionesAceptadas();
+//IVA0.serviciosNombres();
+</script>
+</body>
+</html>
